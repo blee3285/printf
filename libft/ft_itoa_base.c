@@ -1,0 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/05/10 17:06:49 by blee              #+#    #+#             */
+/*   Updated: 2017/05/10 17:40:48 by blee             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+static char	*build_str(long long value, int base, int len)
+{
+	char	*num;
+	char	*str;
+
+	num = ft_strdup("0123456789ABCDEF");
+	str = ft_strnew(len + 1);
+	str[len] = '\0';
+	while (value && (len > -1))
+	{
+		len--;
+		str[len] = num[value % base];
+		value /= base;
+	}
+	if (len != 0)
+		str[0] = '-';
+	free(num);
+	return (str);
+}
+
+char		*ft_itoa_base(int value, int base)
+{
+	long long	num;
+	char		*str;
+	int			len;
+
+	num = value;
+	if (base != 10 && (value < 0))
+		num *= -1;
+	if (base < 2 || base > 16)
+		return (ft_strdup("Error"));
+	if (num == 0)
+		return (ft_strdup("0"));
+	len = ft_numlen(num, base);
+	if (num < 0)
+		num *= -1;
+	str = build_str(num, base, len);
+	return (str);
+}
