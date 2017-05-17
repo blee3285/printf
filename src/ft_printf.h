@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/05/13 19:20:47 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/16 13:56:45 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 # define FT_PRINTF_H
 
 # include "../libft/libft.h"
+# include <stdarg.h>
 
 #endif
