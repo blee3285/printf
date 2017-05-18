@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/05/16 13:56:45 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/17 20:32:16 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,7 @@
 
 # include "../libft/libft.h"
 # include <stdarg.h>
+
+int		ft_printf(const char *str, ...);
 
 #endif
