@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/10 17:58:25 by blee              #+#    #+#              #
-#    Updated: 2017/05/13 19:10:20 by blee             ###   ########.fr        #
+#    Updated: 2017/05/20 17:37:35 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,8 +81,14 @@ LIBSRC		:= ft_atoi.c \
 	     	   ft_lstdelnode.c \
 	     	   ft_itoa_base.c
 
+PFSRC		:= ft_printf.c \
+			   formats.c \
+			   conversion.c \
+
 LIBFT		:= $(addprefix libft/, $(LIBSRC))
+PFC			:= $(addprefix src/, $(PFSRC))
 OBJLIBFT	:= $(LIBSRC:.c=.o)
+OBJPF		:= $(PFSRC:.c=.o)
 
 .PHONY = all clean fclean re
 
@@ -91,12 +97,16 @@ all: $(NAME)
 $(OBJLIBFT): $(LIBFT)
 	@gcc -c $(CFLAGS) $^
 
-$(NAME): $(OBJLIBFT)
-	@ar rc $(NAME) $(OBJLIBFT)
+$(OBJPF): $(PFC)
+	@gcc -c $(CFLAGS) $^
+
+$(NAME): $(OBJLIBFT) $(OBJPF)
+	@ar rc $(NAME) $^
 	@ranlib $(NAME)
 
 clean:
 	/bin/rm -f $(OBJLIBFT)
+	/bin/rm -f $(PFO)
 
 fclean: clean
 	/bin/rm -f $(NAME)
