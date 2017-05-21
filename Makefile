@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/10 17:58:25 by blee              #+#    #+#              #
-#    Updated: 2017/05/20 17:40:04 by blee             ###   ########.fr        #
+#    Updated: 2017/05/20 17:50:55 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,7 @@ PFC			:= $(addprefix src/, $(PFSRC))
 OBJLIBFT	:= $(LIBSRC:.c=.o)
 OBJPF		:= $(PFSRC:.c=.o)
 
-.PHONY = all clean fclean re
+.PHONY = all clean fclean re test
 
 all: $(NAME)
 
@@ -104,10 +104,13 @@ $(NAME): $(OBJLIBFT) $(OBJPF)
 	@ar rc $(NAME) $^
 	@ranlib $(NAME)
 
+test: $(NAME) main.c
+	@gcc main.c $(NAME)
+
 clean:
-	/bin/rm -f $(OBJLIBFT) $(OBJPF)
+	@/bin/rm -f $(OBJLIBFT) $(OBJPF)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
