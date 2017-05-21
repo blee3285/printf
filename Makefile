@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/10 17:58:25 by blee              #+#    #+#              #
-#    Updated: 2017/05/20 17:37:35 by blee             ###   ########.fr        #
+#    Updated: 2017/05/20 17:40:04 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,8 +105,7 @@ $(NAME): $(OBJLIBFT) $(OBJPF)
 	@ranlib $(NAME)
 
 clean:
-	/bin/rm -f $(OBJLIBFT)
-	/bin/rm -f $(PFO)
+	/bin/rm -f $(OBJLIBFT) $(OBJPF)
 
 fclean: clean
 	/bin/rm -f $(NAME)
