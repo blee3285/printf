@@ -6,13 +6,13 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/05/20 19:59:58 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/23 18:26:19 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*check_type(char *str, va_list ap)
+char	*type_to_str(char *str, va_list ap)
 {
 	char	*out;
 	char	*temp;

@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/10 17:58:25 by blee              #+#    #+#              #
-#    Updated: 2017/05/20 17:50:55 by blee             ###   ########.fr        #
+#    Updated: 2017/05/23 19:01:33 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,6 +111,6 @@ clean:
 	@/bin/rm -f $(OBJLIBFT) $(OBJPF)
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME) a.out
 
 re: fclean all
