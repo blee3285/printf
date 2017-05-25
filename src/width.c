@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   width.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/05/24 18:26:19 by blee             ###   ########.fr       */
+/*   Created: 2017/05/24 18:10:39 by blee              #+#    #+#             */
+/*   Updated: 2017/05/24 18:31:58 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
+int		add_width(char **str, int min)
+{
+	char	*new_size;
+	char	*temp;
+	int		len;
 
-int		ft_printf(const char *str, ...);
-int		check_format(char *str, va_list ap);
-int		format_checker(char *str);
-char	*type_to_str(char *str, va_list ap);
-char	*one_char_str(char c);
-int		add_width(char **str, int min);
-#endif
+	new_size = NULL;
+	len = ft_strlen(*str);
+	if (min <= len)
+		return (1);
+	new_size = ft_strnew(min);
+	temp = new_size;
+	len = min - len;
+	while (len)
+	{
+		*temp = ' ';
+		len--;
+		temp++;
+	}
+	ft_strcpy(temp, *str);
+	free(*str);
+	*str = new_size;
+	return (1);
+}

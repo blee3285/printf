@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/05/23 18:26:19 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/24 15:05:59 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ char	*type_to_str(char *str, va_list ap)
 	if (*str == 's')
 		out = ft_strdup(va_arg(ap, char *));
 	if (*str == 'c' || *str == 'C')
-	{
-		out = ft_strnew(1);
-		*out = va_arg(ap, int);
-	}
+		out = one_char_str(va_arg(ap, int));
 	if (*str == 'd' || *str == 'D' || *str == 'i')
 		out = ft_itoa(va_arg(ap, int));
 	if (*str == 'o' || *str == 'O')
@@ -42,6 +39,8 @@ char	*type_to_str(char *str, va_list ap)
 		out = ft_strjoin("0x", temp);
 		free(temp);
 	}
+	if (*str == '%')
+		out = one_char_str('%');
 	/* Need new functions
 	if (*str == 'S') wide char
 
@@ -53,4 +52,13 @@ char	*type_to_str(char *str, va_list ap)
 	n - num of char into a int pointer?
 	*/
 	return (out);
+}
+
+char	*one_char_str(char c)
+{
+	char	*str;
+
+	str = ft_strnew(1);
+	str[0] = c;
+	return (str);
 }

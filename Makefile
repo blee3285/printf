@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/10 17:58:25 by blee              #+#    #+#              #
-#    Updated: 2017/05/23 19:01:33 by blee             ###   ########.fr        #
+#    Updated: 2017/05/24 18:29:24 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,7 @@ LIBSRC		:= ft_atoi.c \
 PFSRC		:= ft_printf.c \
 			   formats.c \
 			   conversion.c \
+			   width.c
 
 LIBFT		:= $(addprefix libft/, $(LIBSRC))
 PFC			:= $(addprefix src/, $(PFSRC))

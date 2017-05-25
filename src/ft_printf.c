@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/05/23 18:47:51 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/24 15:18:20 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ int		check_format(char *str, va_list ap)
 	output = NULL;
 	while (*str)
 	{
-		if (*str == '%' && (len = format_checker(str)))
+		if (*str == '%' && (len = format_checker(str + 1)))
 		{
-			ft_putstr("Format Length: ");
-			ft_putnbr(len);
-			ft_putchar('\n');
 			str += len;
-			output = type_to_str((str - 1), ap);
+			output = type_to_str((str), ap);
 			ft_putstr(output);
 		}
 		else
