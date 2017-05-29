@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   precision.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/05/25 15:45:21 by blee             ###   ########.fr       */
+/*   Created: 2017/05/25 12:10:52 by blee              #+#    #+#             */
+/*   Updated: 2017/05/25 15:44:23 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
+int	cut_str(char **str, int max)
+{
+	int	len;
+	char	*temp;
 
-int		ft_printf(const char *str, ...);
-int		check_format(char *str, va_list ap);
-int		format_checker(char *str);
-char	*type_to_str(char *str, va_list ap);
-char	*one_char_str(char c);
-int		add_width(char **str, int min);
-int		cut_str(char **str, int max);
-#endif
+	len = ft_strlen(*str);
+	temp = *str;
+	if (len > max)
+	{
+		temp += max;
+		ft_strclr(temp);
+	}
+	return (0);
+}
