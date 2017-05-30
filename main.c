@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/05/25 15:44:48 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/30 00:17:30 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ int		main(void)
 	ft_printf("POINTER: %p\n", &ptr);
 	*/
 
-	str = ft_strdup("AAAAABBBBB");
+	str = ft_strdup("     123");
 	printf("OLD STR: |%s|\n", str);
-	cut_str(&str, 5);
+	zero_buffer(&str, 3);
 	printf("NEW STR: |%s|\n", str);
 	return (0);
 }
