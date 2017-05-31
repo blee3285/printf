@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:45:25 by blee              #+#    #+#             */
-/*   Updated: 2017/05/30 00:17:51 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/30 13:51:00 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,26 +64,17 @@ int	zero_buffer(char **str, int len)
 	ft_memset(*str, '0', buffer);
 	return (0);
 }
-/*
+
 int		flag_id(char **str, int len, char flag)
 {
-	char	*valid;
-
 	if (flag == '-')
-	{
-		//shift str to left;
-	}
+		shift_left(str, len);
 	if (flag == '+')
-	{
-		//add '+' if positive number
-	}
+		add_char_with_buffer(str, len, '+');
 	if (flag == ' ')
-	{
-		//add ' ' if positive number
-	}
+		add_char_with_buffer(str, len, ' ');
 	if (flag == '0')
-	{
-		//replace prepending ' ' with  '0'
-	}
+		zero_buffer(str, len);
+	return (0);
 }
-*/
+

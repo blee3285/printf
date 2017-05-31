@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:19:11 by blee              #+#    #+#             */
-/*   Updated: 2017/05/24 17:26:44 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/30 18:36:36 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		check_flag(char c)
 {
 	if (c == '-' || c == '+' || c == ' ' || c == '0' || c == '#')
-		return (1);
+		return (c);
 	return (0);
 }
 
@@ -28,10 +28,12 @@ int		check_precision(char *str)
 
 int		check_length(char *str)
 {
-	if (ft_strncmp(str, "hh", 2) == 0 || ft_strncmp(str, "ll", 2) == 0)
+	if (ft_strncmp(str, "hh", 2) == 0)
+		return (1);
+	else if (ft_strncmp(str, "ll", 2) == 0)
 		return (2);
 	else if (*str == 'h' || *str == 'l' || *str == 'j' || *str == 'z')
-		return (1);
+		return (*str);
 	return (0);
 }
 
@@ -47,7 +49,7 @@ int		check_type(char c)
 		if (valid[i] == c)
 		{
 			free(valid);
-			return (1);
+			return (c);
 		}
 		i++;
 	}
@@ -55,29 +57,32 @@ int		check_type(char c)
 	return (0);
 }
 
-int		format_checker(char *str)
+int		format_checker(char *str, int **formats)
 {
-	//char	*output;
 	int		total;
 	int		len;
+	int		*temp;
 
-	//output = NULL;
+	temp = *formats;
 	total = 0;
 	if ((len = check_flag(*str)))
 	{
-		total += len;
+		temp[0] = len;
+		total += 1;
 		str++;
 	}
-	if ((ft_isdigit(*str)))
+	if (((len = ft_isdigit(*str))))
 	{
+		temp[1] = len;
 		while (ft_isdigit(*str))
 		{
 			total++;
 			str++;
 		}
 	}
-	if ((check_precision(str)))
+	if (((len = check_precision(str))))
 	{
+		temp[2] = len;
 		total += 1;
 		str++;
 		while (ft_isdigit(*str))
@@ -88,17 +93,22 @@ int		format_checker(char *str)
 	}
 	if ((len = check_length(str)))
 	{
-		total += len;
-		while (len)
+		temp[3] = len;
+		total += 1;
+		str += 1;
+		if (len == 2 || len == 1)
 		{
-			str++;
-			len--;
+			total += 1;
+			str += 1;
 		}
 	}
 	if ((len = check_type(*str)))
 	{
-		total += len;
+		temp[4] = len;
+		total += 1;
 		str++;
 	}
+	if (len == 0)
+		return (0);
 	return (total);
 }
