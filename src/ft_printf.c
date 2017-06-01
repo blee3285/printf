@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/05/31 15:50:04 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/31 18:31:10 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ int		check_format(char *str, va_list ap)
 				ft_putchar(' ');
 				i++;
 			}
-			output = type_to_str("s", ap);
+			if (formats[8])
+			{
+				output = type_to_str(one_char_str(formats[8]), ap);
+				ft_putstr(output);
+			}
 		}
 		else
 			ft_putchar(*str);
