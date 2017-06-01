@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/05/30 18:38:48 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/31 18:07:33 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		main(void)
 	*/
 
 	
-	//ft_printf("START\n%-5000.5000hhs\nEND\n", "TEST");
+	ft_printf("START\n%-+++   000####5000.5000hs\nEND\n", "TEST");
 	/*
 	ft_printf("STR: %s\nCHAR: %c\nINT: %d\nOCTAL: %o\nhex: %x\n", "Hello World!", 'Z', 255, 255, 255);
 	ft_printf("HEX: %X\nUNSIGNED INT: %u\n", 255, 2148000000);
@@ -56,7 +56,7 @@ int		main(void)
 	//printf("OLD STR: |%s|\n", str);
 	//flag_id(&str, 3, '-');
 	//printf("NEW STR: |%s|\n", str);
-	
+/*	
 	formats = malloc(sizeof(int) * 6);
 	format_checker("-500.50hs", &formats);
 	while (i < 5)
@@ -69,4 +69,5 @@ int		main(void)
 		i++;
 	}
 	return (0);
+*/
 }

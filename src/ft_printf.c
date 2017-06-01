@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/05/30 17:20:08 by blee             ###   ########.fr       */
+/*   Updated: 2017/05/31 15:50:04 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,16 @@ int		check_format(char *str, va_list ap)
 
 	len = 0;
 	i = 0;
-	formats = (int*)malloc(sizeof(int) * 6);
-	formats[5] = -1;
+	formats = (int*)malloc(sizeof(int) * 9);
+	ft_bzero(formats, 36);
+	formats[9] = -1;
 	output = NULL;
 	while (*str)
 	{
 		if (*str == '%' && (len = format_checker(str + 1, &formats)))
 		{
 			str += len;
-			while (i < 5)
+			while (i < 9)
 			{
 				ft_putnbr(formats[i]);
 				ft_putchar(' ');
