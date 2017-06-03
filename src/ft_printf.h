@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/05/31 18:11:44 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/02 22:05:45 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int						check_type(char *str, int **formats);
 
 /* conversion */
 
-char					*type_to_str(char *str, va_list ap);
+char					*type_to_str(char c, va_list ap);
 char					*one_char_str(char c);
 
 /* width */
