@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/06/02 22:05:24 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/03 15:53:23 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ char	*type_to_str(char c, va_list ap)
 	temp = NULL;
 	if (c == 's')
 		out = ft_strdup(va_arg(ap, char *));
-	if (c == 'c' || *str == 'C')
+	if (c == 'c' || c == 'C')
 		out = one_char_str(va_arg(ap, int));
-	if (c == 'd' || *str == 'D' || *str == 'i')
+	if (c == 'd' || c == 'D' || c == 'i')
 		out = ft_itoa(va_arg(ap, int));
-	if (c == 'o' || *str == 'O')
+	if (c == 'o' || c == 'O')
 		out = ft_itoa_base(va_arg(ap, int), 8, 0);
 	if (c == 'x')
 		out = ft_itoa_base(va_arg(ap, int), 16, 0);
 	if (c == 'X')
 		out = ft_itoa_base(va_arg(ap, int), 16, 1);
-	if (c == 'u' || *str == 'U')
+	if (c == 'u' || c == 'U')
 		out = ft_itoa_base(va_arg(ap, unsigned int), 10 ,0);
 	if (c == 'p')
 	{

@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/10 17:58:25 by blee              #+#    #+#              #
-#    Updated: 2017/05/31 18:06:48 by blee             ###   ########.fr        #
+#    Updated: 2017/06/03 15:48:22 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,7 @@ PFSRC		:= ft_printf.c \
 			   formats.c \
 			   formats2.c \
 			   formats3.c \
+			   build_str.c \
 			   conversion.c \
 			   width.c \
 			   precision.c \
