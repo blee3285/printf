@@ -6,20 +6,11 @@
 /*   By: blee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 14:10:39 by blee              #+#    #+#             */
-/*   Updated: 2017/05/10 17:37:07 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/05 17:32:44 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*num_too_big(void)
-{
-	char *str;
-
-	str = (char*)malloc(sizeof(char) * 12);
-	ft_strcpy(str, "-2147483648");
-	return (str);
-}
 
 char		*ft_itoa(int n)
 {
@@ -28,19 +19,20 @@ char		*ft_itoa(int n)
 	char	*str;
 
 	if (n == -2147483648)
-		return (num_too_big());
+		return (ft_strdup("-2147483648"));
 	neg = -n;
 	len = ft_numlen(n, 10);
 	if (n < 0)
 		n = -n;
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	if (!(str = ft_strnew(len + 1)))
 		return (NULL);
-	str[len--] = '\0';
 	if (n == 0)
-		str[len] = '0';
+		str[0] = '0';
+	len--;
 	while (n > 0)
 	{
-		str[len--] = (n % 10) + '0';
+		str[len] = (n % 10) + '0';
+		len--;
 		n /= 10;
 	}
 	if (neg)
