@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/06/03 15:52:20 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/05 16:35:44 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ int		check_format(char *str, va_list ap)
 				str += len;
 				output = build_str(formats, ap);
 				ft_putstr(output);
+				ft_bzero(formats, 36);
+				free(output);
 			}
 		}
 		else
 			ft_putchar(*str);
 		str++;
 	}
+	free(formats);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/06/03 16:39:09 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/05 16:16:12 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int						check_type(char *str, int **formats);
 /* build str */
 
 char					*build_str(int *formats, va_list ap);
+int						apply_flags(char **output, int *formats, int *len);
+int						numeric_flags(char **output, int *formats, int *len, int neg);
 
 /* conversion */
 
@@ -51,7 +53,6 @@ int						cut_str(char **str, int max);
 int						shift_left(char **str, int len);
 int						add_char(char **str, int len, char c);
 int						add_char_with_buffer(char **str, int len, char c);
-int						zero_buffer(char **str, int len);
-int						flag_id(char **str, int len, char flag);
+int						zero_buffer(char **str, int len, int neg);
 
 #endif

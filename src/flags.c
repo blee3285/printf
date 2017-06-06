@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:45:25 by blee              #+#    #+#             */
-/*   Updated: 2017/06/03 16:39:11 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/05 16:51:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,42 +39,24 @@ int	add_char(char **str, int len, char c)
 
 int	add_char_with_buffer(char **str, int len, char c)
 {
-	char	*new;
 	char	*temp;
 	int	buffer;
 
 	buffer = ft_strlen(*str) - len;
-	new = ft_strnew(buffer + len + 1);
-	temp = new;
-	ft_strncpy(temp, *str, buffer);
-	temp += buffer;
+	temp = *str;
+	temp += buffer - 1;
 	*temp = c;
-	temp++;
-	ft_strcpy(temp, (*str + buffer));
-	free(*str);
-	*str = new;
 	return (0);
 }
 
-int	zero_buffer(char **str, int len)
-{
+int	zero_buffer(char **str, int len, int neg){
 	int	buffer;
 
+	if (neg)
+		len--;
 	buffer = ft_strlen(*str) - len;
 	ft_memset(*str, '0', buffer);
+	if (neg)
+		**str = '-';
 	return (0);
 }
-
-int		flag_id(char **str, int len, char flag)
-{
-	if (flag == '-')
-		shift_left(str, len);
-	if (flag == '+')
-		add_char_with_buffer(str, len, '+');
-	if (flag == ' ')
-		add_char_with_buffer(str, len, ' ');
-	if (flag == '0')
-		zero_buffer(str, len);
-	return (0);
-}
-

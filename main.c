@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/06/03 15:54:59 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/05 17:11:53 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		main(void)
 	char	ptr;
 	int		*formats;
 	int		i;
+	char	c;
 	//char	*str;
 
 	ptr = 'a';
@@ -44,9 +45,7 @@ int		main(void)
 	printf("Le fichier\x1B[36m%s\x1B[0m contient : \x1B[31m%s\x1B[0m", "BBB", "AAA");
 	*/
 
-	
-	//ft_printf("START\n%-+++   000####5000.5000hs\nEND\n", "TEST");
-	/*
+	/*	
 	ft_printf("STR: %s\nCHAR: %c\nINT: %d\nOCTAL: %o\nhex: %x\n", "Hello World!", 'Z', 255, 255, 255);
 	ft_printf("HEX: %X\nUNSIGNED INT: %u\n", 255, 2148000000);
 	ft_printf("POINTER: %p\n", &ptr);
@@ -57,7 +56,8 @@ int		main(void)
 	//flag_id(&str, 3, '-');
 	//printf("NEW STR: |%s|\n", str);
 
-	ft_printf("%10.3s\n", "AAAAA");
+	ft_printf("ft_printf\n|%d|\n|%+d|\n|% d|\n", 123, 123, 123);
+	printf("Real printf\n|%d|\n|%+d|\n|% d|\n", 123, 123, 123);
 
 	return (0);
 }
