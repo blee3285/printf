@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/06/05 16:16:43 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/07 15:54:13 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		apply_flags(char **output, int *formats, int *len)
 	}
 	if (formats[0] && ((size_t)*len < ft_strlen(*output)))
 		shift_left(output, *len);
+	if (formats[4] && find_match(formats[8], "oxX"))
+		add_alt(output, formats[8]);
 	return (0);
 }
 

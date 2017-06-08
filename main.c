@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/06/05 17:19:16 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/07 17:08:18 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int		main(void)
 	//flag_id(&str, 3, '-');
 	//printf("NEW STR: |%s|\n", str);
 
-	ft_printf("ft_printf\n|%d|\n|%+d|\n|% d|\n", 123, 123, 123);
-	printf("Real printf\n|%d|\n|%+d|\n|% d|\n", 123, 123, 123);
-
+	ft_printf("ft_printf\n|%#x|\n", -255);
+	printf("Real printf\n|%#x|\n", -255);
+	
 	return (0);
 }

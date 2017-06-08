@@ -6,7 +6,7 @@
 /*   By: blee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 19:18:32 by blee              #+#    #+#             */
-/*   Updated: 2017/05/10 17:34:56 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/07 17:01:15 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ int	ft_numlen(long long num, int base)
 		count++;
 		num = -num;
 	}
+	while (num > 0)
+	{
+		num /= base;
+		count++;
+	}
+	return (count);
+}
+
+int	ft_numlen_un(unsigned long long num, int base)
+{
+	int count;
+
+	count = 0;
 	while (num > 0)
 	{
 		num /= base;

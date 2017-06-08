@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:45:25 by blee              #+#    #+#             */
-/*   Updated: 2017/06/05 16:51:47 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/07 15:15:19 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int	add_char_with_buffer(char **str, int len, char c)
 	return (0);
 }
 
-int	zero_buffer(char **str, int len, int neg){
+int	zero_buffer(char **str, int len, int neg)
+{
 	int	buffer;
 
 	if (neg)
@@ -58,5 +59,26 @@ int	zero_buffer(char **str, int len, int neg){
 	ft_memset(*str, '0', buffer);
 	if (neg)
 		**str = '-';
+	return (0);
+}
+
+int	add_alt(char **str, char c)
+{
+	char	*temp;
+
+	temp = *str;
+	while (*temp && *temp == '0')
+		temp++;
+	if (*temp)
+	{
+		if (c == 'o')
+			temp = ft_strjoin("0", *str);
+		if (c == 'x')
+			temp = ft_strjoin("0x", *str);
+		if (c == 'X')
+			temp = ft_strjoin("0X", *str);
+		free(*str);
+		*str = temp;
+	}
 	return (0);
 }

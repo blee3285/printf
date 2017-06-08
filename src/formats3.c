@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 17:59:32 by blee              #+#    #+#             */
-/*   Updated: 2017/05/31 18:10:49 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/07 14:18:05 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		check_type(char *str, int **formats)
 	int		*temp;
 
 	temp = *formats;
-	if (find_match(*str, "sSpdDioOuUxXcC"))
+	if (find_match(*str, "sSpdDioOuUxXcC%"))
 	{
 		temp[8] = *str;
 		return (1);

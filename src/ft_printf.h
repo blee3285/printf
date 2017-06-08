@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/06/05 16:16:12 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/07 15:49:10 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int						shift_left(char **str, int len);
 int						add_char(char **str, int len, char c);
 int						add_char_with_buffer(char **str, int len, char c);
 int						zero_buffer(char **str, int len, int neg);
+int						add_alt(char **str, char c);
 
 #endif
