@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:45:25 by blee              #+#    #+#             */
-/*   Updated: 2017/06/07 15:15:19 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/08 16:03:02 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ int	add_alt(char **str, char c)
 	{
 		if (c == 'o')
 			temp = ft_strjoin("0", *str);
-		if (c == 'x')
+		else if (c == 'x')
 			temp = ft_strjoin("0x", *str);
-		if (c == 'X')
+		else if (c == 'X')
 			temp = ft_strjoin("0X", *str);
 		free(*str);
 		*str = temp;

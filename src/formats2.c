@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 14:26:03 by blee              #+#    #+#             */
-/*   Updated: 2017/05/31 17:46:57 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/08 16:02:37 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ int		check_flags(char *str, int **formats)
 	{
 		if (*str == '-')
 			temp[0] = *str;
-		if (*str == '+')
+		else if (*str == '+')
 			temp[1] = *str;
-		if (*str == ' ')
+		else if (*str == ' ')
 			temp[2] = *str;
-		if (*str == '0')
+		else if (*str == '0')
 			temp[3] = *str;
-		if (*str == '#')
+		else if (*str == '#')
 			temp[4] = *str;
 		str++;
 		count++;

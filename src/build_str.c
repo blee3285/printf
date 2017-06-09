@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/06/07 15:54:13 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/08 19:35:32 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		apply_flags(char **output, int *formats, int *len)
 	int		neg;
 
 	neg = 0;
-	if (find_match(formats[8], "dDi"))
+	if (find_match(formats[8], "dDixXoOu"))
 	{
 		if (ft_atoi(*output) < 0)
 			neg = 1;
@@ -61,9 +61,13 @@ char	*build_str(int	*formats, va_list ap)
 	char	*output;
 	int		len;
 
-	output = type_to_str(formats[8], ap);
+	output = NULL;
+	if (formats[7])
+		output = lengths_to_str(formats, ap);
+	else
+		output = type_to_str(formats[8], ap);
 	len = ft_strlen(output);
-	if (formats[6])
+	if (formats[6] && find_match(formats[8], "sS"))
 	{
 		cut_str(&output, formats[6]);
 		len = ft_strlen(output);

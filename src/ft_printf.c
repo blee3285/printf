@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/06/07 19:08:45 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/08 19:26:18 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,14 @@ int		*ft_intarray(int size)
 int		valid_format(char *str, int **formats)
 {
 	int len;
+	int	*temp;
 
 	len = 0;
+	temp = *formats;
 	if (*str == '%')
 	{
 		len += format_checker(str + 1, formats);
-		if (formats[8])
+		if (temp[8])
 			return (len);
 	}
 	return (0);
