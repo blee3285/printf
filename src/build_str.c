@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/06/08 19:35:32 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/12 18:51:27 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int		numeric_flags(char **output, int *formats, int *len, int neg)
 	char	c;
 
 	c = 0;
-	if (formats[1])
+	if (formats[1] && find_match(formats[8], "dDiu"))
 		c = '+';
-	else if (formats[2])
+	else if (formats[2] && find_match(formats[8], "dDiu"))
 		c = ' ';
 	total_len = ft_strlen(*output);
 	if (formats[3] && formats[0] == 0)
@@ -38,12 +38,24 @@ int		numeric_flags(char **output, int *formats, int *len, int neg)
 	return (0);
 }
 
+int		alt_flag(char **output, int *formats, int len)
+{
+	if (formats[3] && ((formats[5] - len) > 1))
+		add_alt_with_zero(output, formats[8]);
+	else if (((formats[5] - len) > 1) ||
+			((formats[5] > len) && (find_match(formats[8], "oO"))))
+		add_alt_with_buffer(output, len, formats);
+	else
+		add_alt(output, formats[8]);
+	return (0);
+}
+
 int		apply_flags(char **output, int *formats, int *len)
 {
 	int		neg;
 
 	neg = 0;
-	if (find_match(formats[8], "dDixXoOu"))
+	if (find_match(formats[8], "dDioOxXu"))
 	{
 		if (ft_atoi(*output) < 0)
 			neg = 1;
@@ -51,8 +63,8 @@ int		apply_flags(char **output, int *formats, int *len)
 	}
 	if (formats[0] && ((size_t)*len < ft_strlen(*output)))
 		shift_left(output, *len);
-	if (formats[4] && find_match(formats[8], "oxX"))
-		add_alt(output, formats[8]);
+	if (formats[4] && find_match(formats[8], "oOxX"))
+		alt_flag(output, formats, *len);
 	return (0);
 }
 

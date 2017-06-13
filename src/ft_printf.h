@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/06/08 16:51:50 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/12 18:34:36 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,7 @@ int						add_char(char **str, int len, char c);
 int						add_char_with_buffer(char **str, int len, char c);
 int						zero_buffer(char **str, int len, int neg);
 int						add_alt(char **str, char c);
+int						add_alt_with_zero(char **str, char c);
+int						add_alt_with_buffer(char **str, int len, int *formats);
 
 #endif

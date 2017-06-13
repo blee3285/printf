@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:45:25 by blee              #+#    #+#             */
-/*   Updated: 2017/06/08 16:03:02 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/12 18:37:08 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	shift_left(char **str, int len)
 {
 	char	*temp;
-	int	buffer;
+	int		buffer;
 
 	buffer = ft_strlen(*str) - len;
 	temp = *str + buffer;
@@ -40,7 +40,7 @@ int	add_char(char **str, int len, char c)
 int	add_char_with_buffer(char **str, int len, char c)
 {
 	char	*temp;
-	int	buffer;
+	int		buffer;
 
 	buffer = ft_strlen(*str) - len;
 	temp = *str;
@@ -65,20 +65,22 @@ int	zero_buffer(char **str, int len, int neg)
 int	add_alt(char **str, char c)
 {
 	char	*temp;
+	char	*temp2;
 
 	temp = *str;
-	while (*temp && *temp == '0')
+	temp2 = NULL;
+	while (*temp == ' ')
 		temp++;
 	if (*temp)
 	{
 		if (c == 'o')
-			temp = ft_strjoin("0", *str);
+			temp2 = ft_strjoin("0", temp);
 		else if (c == 'x')
-			temp = ft_strjoin("0x", *str);
+			temp2 = ft_strjoin("0x", temp);
 		else if (c == 'X')
-			temp = ft_strjoin("0X", *str);
+			temp2 = ft_strjoin("0X", temp);
 		free(*str);
-		*str = temp;
+		*str = temp2;
 	}
 	return (0);
 }

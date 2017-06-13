@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:19:11 by blee              #+#    #+#             */
-/*   Updated: 2017/06/07 18:29:54 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/12 15:45:42 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,17 @@ int		format_checker(char *str, int **formats)
 {
 	int		total;
 	int		len;
+	int		*temp;
 
 	total = 0;
+	temp = *formats;
 	len = check1(str, formats);
 	total += len;
 	str += len;
 	len = check2(str, formats);
 	total += len;
 	str += len;
-	if (len == 0)
+	if (temp[8] == 0)
 		return (0);
 	return (total);
 }
