@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/06/12 18:51:27 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/17 22:39:06 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,22 @@ int		alt_flag(char **output, int *formats, int len)
 int		apply_flags(char **output, int *formats, int *len)
 {
 	int		neg;
+	int		buffer;
 
 	neg = 0;
+	buffer = ft_strlen(*output) - *len;
 	if (find_match(formats[8], "dDioOxXu"))
 	{
 		if (ft_atoi(*output) < 0)
 			neg = 1;
 		numeric_flags(output, formats, len, neg);
 	}
+	if (formats[4] && find_match(formats[8], "oOxX") && )
+	{
+		alt_flag(output, formats, *len);
+	}
 	if (formats[0] && ((size_t)*len < ft_strlen(*output)))
 		shift_left(output, *len);
-	if (formats[4] && find_match(formats[8], "oOxX"))
-		alt_flag(output, formats, *len);
 	return (0);
 }
 
