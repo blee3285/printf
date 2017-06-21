@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/06/17 22:39:06 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/20 20:00:29 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		numeric_flags(char **output, int *formats, int *len, int neg)
 	else if (formats[2] && find_match(formats[8], "dDiu"))
 		c = ' ';
 	total_len = ft_strlen(*output);
-	if (formats[3] && formats[0] == 0)
+	if (formats[3] && formats[0] == 0 && (*len > formats[6]))
 		zero_buffer(output, *len, neg);
 	if ((formats[2] || formats[1]) && (neg == 0))
 	{
@@ -38,35 +38,39 @@ int		numeric_flags(char **output, int *formats, int *len, int neg)
 	return (0);
 }
 
-int		alt_flag(char **output, int *formats, int len)
+int		alt_flag(char **output, int *formats, int *len)
 {
-	if (formats[3] && ((formats[5] - len) > 1))
-		add_alt_with_zero(output, formats[8]);
-	else if (((formats[5] - len) > 1) ||
-			((formats[5] > len) && (find_match(formats[8], "oO"))))
-		add_alt_with_buffer(output, len, formats);
+	int		buffer;
+	char	*temp;
+
+	temp = *output;
+	buffer = ft_strlen(*output) - *len;
+	temp += buffer;
+	if (*len == 1 && *temp == '0')
+		return (0);
+	if (formats[3] && formats[0] == 0)
+		*len += add_alt_with_zero(output, formats);
+	else if ((buffer > 1) ||
+			((buffer > *len) && (find_match(formats[8], "oO"))))
+		*len += add_alt_with_buffer(output, formats, buffer);
 	else
-		add_alt(output, formats[8]);
+		*len += add_alt(output, formats[8], buffer);
 	return (0);
 }
 
 int		apply_flags(char **output, int *formats, int *len)
 {
 	int		neg;
-	int		buffer;
 
 	neg = 0;
-	buffer = ft_strlen(*output) - *len;
-	if (find_match(formats[8], "dDioOxXu"))
+	if (find_match(formats[8], "dDioOxXuU"))
 	{
 		if (ft_atoi(*output) < 0)
 			neg = 1;
 		numeric_flags(output, formats, len, neg);
 	}
-	if (formats[4] && find_match(formats[8], "oOxX") && )
-	{
-		alt_flag(output, formats, *len);
-	}
+	if (formats[4] && find_match(formats[8], "oOxX"))
+		alt_flag(output, formats, len);
 	if (formats[0] && ((size_t)*len < ft_strlen(*output)))
 		shift_left(output, *len);
 	return (0);
@@ -83,11 +87,8 @@ char	*build_str(int	*formats, va_list ap)
 	else
 		output = type_to_str(formats[8], ap);
 	len = ft_strlen(output);
-	if (formats[6] && find_match(formats[8], "sS"))
-	{
-		cut_str(&output, formats[6]);
-		len = ft_strlen(output);
-	}
+	if (formats[6])
+		precision(&output, formats, &len);
 	if (formats[5])
 		add_width(&output, formats[5]);
 	apply_flags(&output, formats, &len);
