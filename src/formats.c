@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:19:11 by blee              #+#    #+#             */
-/*   Updated: 2017/06/12 15:45:42 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/24 15:30:29 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ int		check1(char *str, int **formats)
 		str += len;
 	}
 	if ((len = check_precision(str, formats)))
-	{
 		total += len + 1;
-		str += len + 1;
-	}
+	else if (*str == '.')
+		total++;
 	return (total);
 }
 
@@ -48,10 +47,7 @@ int		check2(char *str, int **formats)
 		str += len;
 	}
 	if ((len = check_type(str, formats)))
-	{
 		total += len;
-		str += len;
-	}
 	return (total);
 }
 
@@ -60,7 +56,9 @@ int		format_checker(char *str, int **formats)
 	int		total;
 	int		len;
 	int		*temp;
+	int		i;
 
+	i = 0;
 	total = 0;
 	temp = *formats;
 	len = check1(str, formats);

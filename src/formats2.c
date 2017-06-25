@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 14:26:03 by blee              #+#    #+#             */
-/*   Updated: 2017/06/20 20:08:48 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/24 18:03:44 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,24 @@ int		check_width(char *str, int **formats)
 int		check_precision(char *str, int **formats)
 {
 	int		*temp;
+	int		i;
 
 	temp = *formats;
-	if (*str == '.' && ft_isdigit(str[1]))
+	i = 0;
+	if (*str == '.')
 	{
 		str++;
 		temp[6] = ft_atoi(str);
-		return (ft_numlen(temp[6], 10));
+		if (*str == '*')
+			temp[6] = -2;
+		else if (temp[6] == 0)
+			temp[6] = -1;
+		while (ft_isdigit(*str))
+		{
+			i++;
+			str++;
+		}
+		return (i);
 	}
-	else if (*str == '.' && str[1] == '*')
-		return (1);
 	return (0);
 }
