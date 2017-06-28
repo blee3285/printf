@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/06/24 18:47:46 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/27 19:40:35 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		main(void)
 	//flag_id(&str, 3, '-');
 	//printf("NEW STR: |%s|\n", str);
 
-	ft_printf("|%s|\n", NULL);
+	ft_printf("|@moulitest: %#.o %#.0o|", 0, 0);
 	//printf("|%.d %.0d|\n", 42, 43);
 	
 	return (0);

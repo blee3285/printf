@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/06/24 16:52:18 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/27 20:09:40 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int		numeric_flags(char **output, int *formats, int *len, int neg)
 	char	c;
 
 	c = 0;
-	if (formats[1] && find_match(formats[8], "dDiu"))
+	if (formats[1] && find_match(formats[8], "dDi"))
 		c = '+';
-	else if (formats[2] && find_match(formats[8], "dDiu"))
+	else if (formats[2] && find_match(formats[8], "dDi"))
 		c = ' ';
 	total_len = ft_strlen(*output);
 	if (formats[3] && formats[0] == 0 && (*len > formats[6]))
 		zero_buffer(output, *len, neg);
-	if ((formats[2] || formats[1]) && (neg == 0))
+	if ((formats[2] || formats[1]) && (neg == 0) && find_match(formats[8], "dDi"))
 	{
 		if (formats[3] && (*len < total_len))
 			**output = c;
@@ -65,7 +65,7 @@ int		apply_flags(char **output, int *formats, int *len)
 	neg = 0;
 	if (find_match(formats[8], "dDioOxXuU"))
 	{
-		if (ft_atoi(*output) < 0)
+		if (ft_atoi(*output) < 0 && find_match(formats[8], "dDi"))
 			neg = 1;
 		numeric_flags(output, formats, len, neg);
 	}
@@ -85,7 +85,7 @@ char	*build_str(int	*formats, va_list ap)
 	if (formats[7])
 		output = lengths_to_str(formats, ap);
 	else
-		output = type_to_str(formats[8], ap);
+		output = conversion(formats, ap);
 	len = ft_strlen(output);
 	if (formats[6] || formats[6] == -1)
 		precision(&output, formats, &len);
