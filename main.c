@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/06/27 19:40:35 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/29 17:50:40 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(void)
 	int		*formats;
 	int		i;
 	char	c;
-	//char	*str;
+	char	*str;
 
 	ptr = 'a';
 	i = 0;
@@ -54,8 +54,9 @@ int		main(void)
 	//printf("OLD STR: |%s|\n", str);
 	//flag_id(&str, 3, '-');
 	//printf("NEW STR: |%s|\n", str);
-
-	ft_printf("|@moulitest: %#.o %#.0o|", 0, 0);
+	
+	str = ft_strdup("AAA");
+	ft_printf(str);
 	//printf("|%.d %.0d|\n", 42, 43);
 	
 	return (0);

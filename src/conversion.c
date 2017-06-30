@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/06/27 19:05:59 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/29 17:42:00 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*type_to_str1(char c, void *ptr)
 	else if (c == 'c' || c == 'C')
 		out = one_char_str((int)ptr);
 	else if (c == 'd' || c == 'D' || c == 'i')
-		out = ft_itoa((int)ptr);
+		out = ft_itoa_base((int)ptr, 10, 0);
 	else if (c == '%')
 		out = one_char_str('%');
 	return (out);
@@ -52,8 +52,10 @@ char	*type_to_str2(char c, void *ptr)
 		out = ft_itoa_base_un((unsigned int)ptr, 16, 0);
 	else if (c == 'X')
 		out = ft_itoa_base_un((unsigned int)ptr, 16, 1);
-	else if (c == 'u' || c == 'U')
-		out = ft_itoa_base_un((unsigned int)ptr, 10 ,0);
+	else if (c == 'u')
+		out = ft_itoa_base_un((unsigned int)ptr, 10, 0);
+	else if (c == 'U')
+		out = ft_itoa_base_un((unsigned long)ptr, 10, 0);
 	else if (c == 'p')
 	{
 		temp = ft_itoa_base_un((long long)ptr, 16, 0);

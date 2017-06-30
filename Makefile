@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/10 17:58:25 by blee              #+#    #+#              #
-#    Updated: 2017/06/12 18:35:06 by blee             ###   ########.fr        #
+#    Updated: 2017/06/29 14:31:56 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,10 +103,10 @@ OBJPF		:= $(PFSRC:.c=.o)
 all: $(NAME)
 
 $(OBJLIBFT): $(LIBFT)
-	@gcc -c $(CFLAGS) $^
+	@gcc -c $^
 
 $(OBJPF): $(PFC)
-	@gcc -c $(CFLAGS) $^
+	@gcc -c $^
 
 $(NAME): $(OBJLIBFT) $(OBJPF)
 	@ar rc $(NAME) $^

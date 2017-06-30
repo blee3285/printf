@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 17:06:49 by blee              #+#    #+#             */
-/*   Updated: 2017/06/08 19:48:47 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/29 14:37:38 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ char		*ft_itoa_base(long long value, int base, int cap)
 		return (ft_strdup("Error"));
 	if (num == 0)
 		return (ft_strdup("0"));
+	if (num < -9223372036854775807)
+		return (ft_strdup("-9223372036854775808"));
 	len = ft_numlen(num, base);
 	if (num < 0)
 		num *= -1;
@@ -66,7 +68,7 @@ static char	*build_str_un(unsigned long long value, int base, int len, int cap)
 		num = ft_strdup("0123456789abcdef");
 	str = ft_strnew(len + 1);
 	str[len] = '\0';
-	while (value > 0)
+	while (value && len >= 0)
 	{
 		len--;
 		str[len] = num[value % base];

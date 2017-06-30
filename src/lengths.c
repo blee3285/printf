@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 17:28:36 by blee              #+#    #+#             */
-/*   Updated: 2017/06/08 18:35:33 by blee             ###   ########.fr       */
+/*   Updated: 2017/06/29 13:56:05 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*lengths_to_str(int *formats, va_list ap)
 	out = NULL;
 	if (find_match(formats[8], "dDi"))
 		out = int_types(formats, ap);
-	else if (find_match(formats[8], "oOxXu"))
+	else if (find_match(formats[8], "oOxXuU"))
 		out = octal_hex_types(formats, ap);
 	return (out);
 }
