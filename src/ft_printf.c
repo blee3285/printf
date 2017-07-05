@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/06/29 17:49:43 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/03 19:41:23 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int		print_string(int **formats, va_list ap)
 
 	output = build_str(*formats, ap);
 	len = ft_strlen(output);
+	len += *(*formats + 9);
 	ft_putstr(output);
-	ft_bzero(*formats, 36);
+	ft_bzero(*formats, 40);
 	free(output);
 	return (len);
 }
@@ -59,7 +60,7 @@ int		check_format(char *str, va_list ap)
 	int		i;
 
 	i = 0;
-	formats = ft_intarray(9);
+	formats = ft_intarray(10);
 	while (*str)
 	{
 		if ((len = valid_format(str, &formats)))

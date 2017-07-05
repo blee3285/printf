@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/06/29 15:34:10 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/03 18:51:20 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int		numeric_flags(char **output, int *formats, int *len, int neg)
 	total_len = ft_strlen(*output);
 	if (formats[3] && formats[0] == 0 && (*len > formats[6]))
 		zero_buffer(output, *len, neg);
-	if ((formats[2] || formats[1]) && (neg == 0) && find_match(formats[8], "dDi"))
+	if ((formats[2] || formats[1]) && !neg && 
+			find_match(formats[8], "dDi"))
 	{
 		if (formats[3] && (*len < total_len))
 			**output = c;
@@ -85,7 +86,7 @@ char	*build_str(int	*formats, va_list ap)
 	if (formats[7])
 		output = lengths_to_str(formats, ap);
 	else
-		output = conversion(formats, ap);
+		output = conversion(&formats, ap);
 	len = ft_strlen(output);
 	if (formats[6] || formats[6] == -1)
 		precision(&output, formats, &len);

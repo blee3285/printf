@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/06/27 18:54:32 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/03 18:49:06 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int						numeric_flags(char **output, int *formats, int *len, int neg);
 
 char					*type_to_str1(char c, void *ptr);
 char					*type_to_str2(char c, void *ptr);
-char					*conversion(int *formats, va_list ap);
+char					*conversion(int **formats, va_list ap);
 char					*one_char_str(char c);
 
 /* lengths */
