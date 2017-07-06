@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/07/06 16:18:49 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 16:35:45 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ int		numeric_flags(char **out, int *form, int *len, int neg)
 	char	c;
 
 	c = 0;
-	if (formats[1] && find_match(formats[8], "dDi"))
+	if (form[1] && find_match(form[8], "dDi"))
 		c = '+';
-	else if (formats[2] && find_match(formats[8], "dDi"))
+	else if (form[2] && find_match(form[8], "dDi"))
 		c = ' ';
-	total_len = ft_strlen(*output);
-	if (formats[3] && formats[0] == 0 && (*len > formats[6]))
-		zero_buffer(output, *len, neg);
-	if ((formats[2] || formats[1]) && !neg &&
-			find_match(formats[8], "dDi"))
+	total_len = ft_strlen(*out);
+	if (form[3] && form[0] == 0 && (*len > form[6]))
+		zero_buffer(out, *len, neg);
+	if ((form[2] || form[1]) && !neg &&
+			find_match(form[8], "dDi"))
 	{
-		if (formats[3] && (*len < total_len))
-			**output = c;
+		if (form[3] && (*len < total_len))
+			**out = c;
 		else if (*len < total_len)
-			add_char_with_buffer(output, *len, c);
+			add_char_with_buffer(out, *len, c);
 		else
-			add_char(output, *len, c);
+			add_char(out, *len, c);
 		*len += 1;
 	}
 	return (0);
