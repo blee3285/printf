@@ -6,13 +6,13 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/07/03 18:51:20 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 16:18:49 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		numeric_flags(char **output, int *formats, int *len, int neg)
+int		numeric_flags(char **out, int *form, int *len, int neg)
 {
 	int		total_len;
 	char	c;
@@ -25,7 +25,7 @@ int		numeric_flags(char **output, int *formats, int *len, int neg)
 	total_len = ft_strlen(*output);
 	if (formats[3] && formats[0] == 0 && (*len > formats[6]))
 		zero_buffer(output, *len, neg);
-	if ((formats[2] || formats[1]) && !neg && 
+	if ((formats[2] || formats[1]) && !neg &&
 			find_match(formats[8], "dDi"))
 	{
 		if (formats[3] && (*len < total_len))
@@ -77,7 +77,7 @@ int		apply_flags(char **output, int *formats, int *len)
 	return (0);
 }
 
-char	*build_str(int	*formats, va_list ap)
+char	*build_str(int *formats, va_list ap)
 {
 	char	*output;
 	int		len;
@@ -88,10 +88,12 @@ char	*build_str(int	*formats, va_list ap)
 	else
 		output = conversion(&formats, ap);
 	len = ft_strlen(output);
+	if (formats[9])
+		len = 1;
 	if (formats[6] || formats[6] == -1)
 		precision(&output, formats, &len);
 	if (formats[5])
-		add_width(&output, formats[5]);
+		add_width(&output, formats[5], len);
 	apply_flags(&output, formats, &len);
 	return (output);
 }

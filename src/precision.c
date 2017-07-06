@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/25 12:10:52 by blee              #+#    #+#             */
-/*   Updated: 2017/06/27 19:53:56 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 15:13:41 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int		precision(char **str, int *formats, int *len)
 	}
 	if (find_match(formats[8], "sS"))
 		*len = cut_str(str, formats[6], *len);
+	else if (formats[6] == 0 && find_match(formats[8], "oO") && formats[4])
+		return (0);
 	else if (find_match(formats[8], "dDiuUoOxX"))
 		*len = precision_num(str, formats, len);
 	return (0);

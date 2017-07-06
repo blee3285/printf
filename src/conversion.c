@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/03 19:38:59 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 16:17:56 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ char	*one_char_str(char c)
 	return (str);
 }
 
-char	*conversion(int	**formats, va_list ap)
+char	*conversion(int **formats, va_list ap)
 {
 	char	*out;
 	void	*ptr;
-	int	*temp;
+	int		*temp;
 
 	temp = *formats;
 	out = NULL;

@@ -6,13 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 17:28:36 by blee              #+#    #+#             */
-/*   Updated: 2017/06/30 18:02:23 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 16:20:56 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/* 1 = hh, 2 = ll */
 
 char	*int_types(int *formats, void *ptr)
 {
@@ -50,7 +48,7 @@ char	*octal_hex_types(int *formats, void *ptr)
 	char	*out;
 	int		size;
 	int		x;
-	
+
 	x = 0;
 	size = 16;
 	out = NULL;

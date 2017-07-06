@@ -6,20 +6,18 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:10:39 by blee              #+#    #+#             */
-/*   Updated: 2017/05/24 18:31:58 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 14:30:26 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		add_width(char **str, int min)
+int		add_width(char **str, int min, int len)
 {
 	char	*new_size;
 	char	*temp;
-	int		len;
 
 	new_size = NULL;
-	len = ft_strlen(*str);
 	if (min <= len)
 		return (1);
 	new_size = ft_strnew(min);

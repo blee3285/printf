@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/07/03 19:33:03 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 15:02:07 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ int		main(void)
 	//flag_id(&str, 3, '-');
 	//printf("NEW STR: |%s|\n", str);
 	
-	i = ft_printf("|%c|\n", NULL);
-	ft_putnbr(i);
-	ft_putchar('\n');
+	i = ft_printf("|%#.0o|\n", 0);
 	
 	return (0);
 }
