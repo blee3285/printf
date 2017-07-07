@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 14:26:03 by blee              #+#    #+#             */
-/*   Updated: 2017/06/24 18:03:44 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 19:06:51 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		check_flags(char *str, int **formats)
 	return (count);
 }
 
-int		check_width(char *str, int **formats)
+int		check_width(char *str, int **formats, va_list ap)
 {
 	int		*temp;
 
@@ -58,10 +58,15 @@ int		check_width(char *str, int **formats)
 		temp[5] = ft_atoi(str);
 		return (ft_numlen(temp[5], 10));
 	}
+	else if (*str == '*')
+	{
+		temp[5] = va_arg(ap, int);
+		return (1);
+	}
 	return (0);
 }
 
-int		check_precision(char *str, int **formats)
+int		check_precision(char *str, int **formats, va_list ap)
 {
 	int		*temp;
 	int		i;
@@ -73,7 +78,10 @@ int		check_precision(char *str, int **formats)
 		str++;
 		temp[6] = ft_atoi(str);
 		if (*str == '*')
-			temp[6] = -2;
+		{
+			temp[6] = va_arg(ap, int);
+			i++;
+		}
 		else if (temp[6] == 0)
 			temp[6] = -1;
 		while (ft_isdigit(*str))

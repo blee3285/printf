@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/07/06 16:20:38 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 18:59:35 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 int					ft_printf(const char *str, ...);
 
 int					check_format(char *str, va_list ap);
-int					format_checker(char *str, int **formats);
+int					format_checker(char *str, int **formats, va_list ap);
 int					find_match(char c, char *str);
 int					check_flags(char *str, int **formats);
-int					check_width(char *str, int **formats);
-int					check_precision(char *str, int **formats);
+int					check_width(char *str, int **formats, va_list ap);
+int					check_precision(char *str, int **formats, va_list ap);
 int					check_length(char *str, int **formats);
 int					check_type(char *str, int **formats);
 

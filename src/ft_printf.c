@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/07/06 16:09:32 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/06 19:00:33 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		*ft_intarray(int size)
 	return (array);
 }
 
-int		valid_format(char *str, int **formats)
+int		valid_format(char *str, int **formats, va_list ap)
 {
 	int len;
 	int	*temp;
@@ -46,7 +46,7 @@ int		valid_format(char *str, int **formats)
 	temp = *formats;
 	if (*str == '%')
 	{
-		len += format_checker(str + 1, formats);
+		len += format_checker(str + 1, formats, ap);
 		if (temp[8])
 			return (len);
 	}
@@ -63,7 +63,7 @@ int		check_format(char *str, va_list ap)
 	formats = ft_intarray(10);
 	while (*str)
 	{
-		if ((len = valid_format(str, &formats)))
+		if ((len = valid_format(str, &formats, ap)))
 		{
 			str += len;
 			i += print_string(&formats, ap);
