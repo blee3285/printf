@@ -6,13 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 15:23:28 by blee              #+#    #+#             */
-/*   Updated: 2017/07/12 18:58:17 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/13 16:16:41 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/* need to include stddef.h or wchar.h? */
 
 char	*one_byte_str(wchar_t wc)
 {
@@ -28,9 +26,9 @@ char	*two_byte_str(wchar_t wc)
 	char	*str;
 
 	str = ft_strnew(2);
-	str[0] = (unsigned char)wc >> 6;
-	str[0] = str[0] | 0xC0;
-	str[1] = (unsigned char)wc & 0x3F;
+	str[0] = (unsigned char)(wc >> 6);
+	str[0] += 0xC0;
+	str[1] = (unsigned char)(wc & 0x3F);
 	str[1] += 0x80;
 	return (str);
 }
@@ -40,11 +38,11 @@ char	*three_byte_str(wchar_t wc)
 	char	*str;
 
 	str = ft_strnew(3);
-	str[0] = (unsigned char)wc >> 12;
-	str[0] = str[0] | 0xE0;
-	str[1] = (unsigned char)wc >> 6;
+	str[0] = (unsigned char)(wc >> 12);
+	str[0] += 0xE0;
+	str[1] = (unsigned char)(wc >> 6);
 	str[1] = (str[1] & 0x3F) + 0x80;
-	str[2] = (unsigned char)wc & 0x3F;
+	str[2] = (unsigned char)(wc & 0x3F);
 	str[2] += 0x80;
 	return (str);
 }
@@ -54,14 +52,22 @@ char	*four_byte_str(wchar_t wc)
 	char	*str;
 
 	str = ft_strnew(4);
-	str[0] = (unsigned char)wc >> 18;
-	str[0] += 
+	str[0] = (unsigned char)(wc >> 18);
+	str[0] += 0xF0;
+	str[1] = (unsigned char)(wc >> 12);
+	str[1] = (str[1] & 0x3F) + 0x80;
+	str[2] = (unsigned char)(wc >> 6);
+	str[2] = (str[2] & 0x3F) + 0x80;
+	str[3] = (unsigned char)(wc & 0x3F);
+	str[3] += 0x80;
+	return (str);
 }
 
 char	*wchar_to_str(wchar_t wc)
 {
-	/* MB_CUR_MAX */
 	char	*out;
+
+	out = NULL;
 	if (wc <= 0x7F)
 		out = one_byte_str(wc);
 	else if (wc <= 0x7FF)
@@ -70,5 +76,5 @@ char	*wchar_to_str(wchar_t wc)
 		out = three_byte_str(wc);
 	else if (wc <= 0x10FFFF)
 		out = four_byte_str(wc);
-
+	return (out);
 }

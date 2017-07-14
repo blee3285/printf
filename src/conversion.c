@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/06 16:17:56 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/13 16:55:53 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ char	*type_to_str1(char c, void *ptr)
 	out = NULL;
 	if (c == 's')
 		out = ft_strdup((char *)ptr);
-	else if (c == 'c' || c == 'C')
+	else if (c == 'c')
 		out = one_char_str((int)ptr);
+	else if (c == 'C')
+		out = wchar_to_str((wchar_t)ptr);
 	else if (c == 'd' || c == 'D' || c == 'i')
 		out = ft_itoa_base((int)ptr, 10, 0);
 	else if (c == '%')
