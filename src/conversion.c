@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/17 20:51:53 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/17 21:17:05 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,7 @@ char	*conversion(int **formats, va_list ap)
 	temp[9] = ft_strlen(out);
 	if (temp[8] == 'c' && !*out)
 		temp[9]++;
+	if (temp[8] == 'C')
+		temp[9] = 1;
 	return (out);
 }
