@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:45:25 by blee              #+#    #+#             */
-/*   Updated: 2017/07/06 16:06:15 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/17 20:34:21 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,15 @@ int	zero_buffer(char **str, int len, int neg)
 	return (buffer);
 }
 
-int	add_alt(char **str, char c, int buffer)
+int	add_alt(char **str, int *form, int buffer)
 {
 	char	*temp;
 	char	*temp2;
+	int		c;
 
+	c = form[8];
+	if ((form[6] == -1) && (c == 'x' || c == 'X'))
+		return (0);
 	temp = *str;
 	temp += buffer;
 	temp2 = NULL;

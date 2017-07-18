@@ -6,23 +6,25 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:10:39 by blee              #+#    #+#             */
-/*   Updated: 2017/07/06 14:30:26 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/17 19:59:30 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		add_width(char **str, int min, int len)
+int		add_width(char **str, int **formats, int len)
 {
 	char	*new_size;
 	char	*temp;
+	int		*form;
 
+	form = *formats;
 	new_size = NULL;
-	if (min <= len)
-		return (1);
-	new_size = ft_strnew(min);
+	if (form[5] <= len)
+		return (len);
+	new_size = ft_strnew(form[5]);
 	temp = new_size;
-	len = min - len;
+	len = form[5] - len;
 	while (len)
 	{
 		*temp = ' ';
@@ -32,5 +34,5 @@ int		add_width(char **str, int min, int len)
 	ft_strcpy(temp, *str);
 	free(*str);
 	*str = new_size;
-	return (1);
+	return (form[5]);
 }

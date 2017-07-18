@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/07/13 18:28:35 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/17 20:25:50 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ int		main(void)
 	//flag_id(&str, 3, '-');
 	//printf("NEW STR: |%s|\n", str);
 	
-	//i = ft_printf("|%*.*d|\n", 5, -5, 50);
+	i = ft_printf("|@moulitest: %#.x %#.0x|", 0, 0);
+	ft_putchar('\n');
+	ft_putnbr(i);
 
-	//i = ft_printf("%C\n", wc);
 	
 	//char	*str = "hellodf";
 
@@ -81,8 +82,8 @@ int		main(void)
 	//ft_printf("|%-06%-05=%-5#d|\n", 555);
 	//printf("|%s%9.5S%ls|\n", "hello", L"漢字", L"漢字");
 	//ft_printf("|%s%9.5S%ls|\n", "hello", L"漢字", L"漢字");
-	printf("|%c%C%lc|\n", 'h', L'漢', L'漢');
-	ft_printf("|%c%C%lc|\n", 'h', L'漢', L'漢');
+	//printf("|%c%C%lc|\n", 'h', L'漢', L'漢');
+	//ft_printf("|%c%C%lc|\n", 'h', L'漢', L'漢');
 	//printf("printf: |%#1.5x|\n", LONG_MAX);
 	//ft_printf("printf: |%#1.5x|\n", LONG_MAX);
 	//printf("printf: |%#lo|%#ho|%#hho|\n", LONG_MAX, LONG_MAX, LONG_MAX);
