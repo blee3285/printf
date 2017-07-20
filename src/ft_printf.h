@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/07/17 20:30:30 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/19 19:58:13 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char			*type_to_str2(char c, void *ptr);
 char			*conversion(int **formats, va_list ap);
 char			*one_char_str(char c);
 
-char			*lengths_to_str(int **formats, va_list ap);
+char			*lengths_to_str(int **formats, void *ptr);
 
 int				add_width(char **str, int **formats, int len);
 
@@ -52,6 +52,7 @@ int				add_alt(char **str, int *form, int buffer);
 int				add_alt_with_zero(char **str, int *formats);
 int				add_alt_with_buffer(char **str, int *formats, int buffer);
 
-char			*wchar_to_str(wchar_t wc);	
+char			*wchar_to_str(wchar_t wc);
+char			*wstr_to_str(wchar_t *wstr);
 
 #endif

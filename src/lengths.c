@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 17:28:36 by blee              #+#    #+#             */
-/*   Updated: 2017/07/17 20:52:56 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/19 19:58:00 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,19 +70,31 @@ char	*octal_hex_types(int *formats, void *ptr)
 	return (out);
 }
 
-char	*lengths_to_str(int **formats, va_list ap)
+char	*str_and_char_types(int *formats, void *ptr)
 {
 	char	*out;
-	void	*ptr;
+	
+	out = NULL;
+	if (formats[7] == 'l' && formats[8] == 'c')
+		out = wchar_to_str((wchar_t)ptr);
+	if (formats[7] == 'l' && formats[8] == 's')
+		out = wstr_to_str((wchar_t *)ptr);
+	return (out);
+}
+
+char	*lengths_to_str(int **formats, void *ptr)
+{
+	char	*out;
 	int		*temp;
 
 	temp = *formats;
 	out = NULL;
-	ptr = va_arg(ap, void *);
 	if (find_match(temp[8], "dDi"))
 		out = int_types(temp, ptr);
 	else if (find_match(temp[8], "oOxXuU"))
 		out = octal_hex_types(temp, ptr);
+	else if (find_match(temp[8], "cs"))
+		out = str_and_char_types(temp, ptr);
 	temp[9] = ft_strlen(out);
 	return (out);
 }

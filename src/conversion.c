@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/17 21:17:05 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/19 19:58:44 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*type_to_str1(char c, void *ptr)
 	out = NULL;
 	if (c == 's')
 		out = ft_strdup((char *)ptr);
+	if (c == 'S')
+		out = wstr_to_str((wchar_t *)ptr);
 	else if (c == 'c')
 		out = one_char_str((int)ptr);
 	else if (c == 'C')
@@ -86,13 +88,15 @@ char	*conversion(int **formats, va_list ap)
 	out = NULL;
 	ptr = va_arg(ap, void *);
 	if (ptr == NULL && temp[8] == 's')
-		return (ft_strdup("(null)"));
-	if (find_match(temp[8], "scCdDi%"))
+		out = ft_strdup("(null)");
+	else if (temp[7])
+		out = lengths_to_str(formats, ptr);
+	else if (find_match(temp[8], "sScCdDi%"))
 		out = type_to_str1(temp[8], ptr);
 	else if (find_match(temp[8], "oOxXuUp"))
 		out = type_to_str2(temp[8], ptr);
 	temp[9] = ft_strlen(out);
-	if (temp[8] == 'c' && !*out)
+	if (temp[8] == 'c' && ptr == NULL)
 		temp[9]++;
 	if (temp[8] == 'C')
 		temp[9] = 1;

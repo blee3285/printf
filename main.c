@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/07/17 20:25:50 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/19 19:53:02 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		main(void)
 	unsigned char	c;
 	wchar_t wc;
 	char	*str;
+	wchar_t	wstr[] = L"漢字";
 
 	ptr = 'a';
 	i = 0;
@@ -58,9 +59,10 @@ int		main(void)
 	//flag_id(&str, 3, '-');
 	//printf("NEW STR: |%s|\n", str);
 	
-	i = ft_printf("|@moulitest: %#.x %#.0x|", 0, 0);
+	i = ft_printf("%lc", wc);
 	ft_putchar('\n');
 	ft_putnbr(i);
+	ft_putchar('\n');
 
 	
 	//char	*str = "hellodf";

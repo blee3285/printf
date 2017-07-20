@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/07/17 20:50:08 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/19 19:55:35 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,7 @@ char	*build_str(int **formats, va_list ap)
 
 	output = NULL;
 	temp = *formats;
-	if (temp[7])
-		output = lengths_to_str(formats, ap);
-	else
-		output = conversion(formats, ap);
+	output = conversion(formats, ap);
 	if (!output)
 		return (ft_strdup("(NULL)"));
 	len = temp[9];
