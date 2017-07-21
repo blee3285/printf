@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/19 19:58:44 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 14:11:52 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	*conversion(int **formats, va_list ap)
 	temp = *formats;
 	out = NULL;
 	ptr = va_arg(ap, void *);
-	if (ptr == NULL && temp[8] == 's')
+	if (ptr == NULL && (temp[8] == 's' || temp[8] == 'S'))
 		out = ft_strdup("(null)");
 	else if (temp[7])
 		out = lengths_to_str(formats, ptr);
@@ -95,6 +95,8 @@ char	*conversion(int **formats, va_list ap)
 		out = type_to_str1(temp[8], ptr);
 	else if (find_match(temp[8], "oOxXuUp"))
 		out = type_to_str2(temp[8], ptr);
+	if (!out)
+		out = ft_strdup("");
 	temp[9] = ft_strlen(out);
 	if (temp[8] == 'c' && ptr == NULL)
 		temp[9]++;

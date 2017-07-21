@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/07/19 19:53:02 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 14:24:54 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		main(void)
 {
 	unsigned char	ptr;
 	int		i;
+	int		j;
 	unsigned char	c;
 	wchar_t wc;
 	char	*str;
@@ -33,6 +34,7 @@ int		main(void)
 
 	ptr = 'a';
 	i = 0;
+	j = 0;
 	c = 0;
 	wc = L'𐍈';
 	str = NULL;
@@ -59,9 +61,11 @@ int		main(void)
 	//flag_id(&str, 3, '-');
 	//printf("NEW STR: |%s|\n", str);
 	
-	i = ft_printf("%lc", wc);
-	ft_putchar('\n');
+	i = ft_printf("|%3c|\n", 0);
 	ft_putnbr(i);
+	ft_putchar('\n');
+	j = printf("|%3c|\n", 0);
+	ft_putnbr(j);
 	ft_putchar('\n');
 
 	
