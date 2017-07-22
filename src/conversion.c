@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/21 14:11:52 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 16:06:13 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ char	*type_to_str1(char c, void *ptr)
 char	*type_to_str2(char c, void *ptr)
 {
 	char	*out;
-	char	*temp;
 
 	out = NULL;
-	temp = NULL;
 	if (c == 'o' || c == 'O')
 		out = ft_itoa_base_un((unsigned int)ptr, 8, 0);
 	else if (c == 'x')
@@ -61,11 +59,7 @@ char	*type_to_str2(char c, void *ptr)
 	else if (c == 'U')
 		out = ft_itoa_base_un((unsigned long)ptr, 10, 0);
 	else if (c == 'p')
-	{
-		temp = ft_itoa_base_un((long long)ptr, 16, 0);
-		out = ft_strjoin("0x", temp);
-		free(temp);
-	}
+		out = ft_itoa_base_un((long long)ptr, 16, 0);
 	return (out);
 }
 
@@ -87,9 +81,11 @@ char	*conversion(int **formats, va_list ap)
 	temp = *formats;
 	out = NULL;
 	ptr = va_arg(ap, void *);
+	if (temp[8] == 'p')
+		temp[4] = 1;
 	if (ptr == NULL && (temp[8] == 's' || temp[8] == 'S'))
 		out = ft_strdup("(null)");
-	else if (temp[7])
+	else if (temp[7] && find_match(temp[8], "dDioOxXuUcs"))
 		out = lengths_to_str(formats, ptr);
 	else if (find_match(temp[8], "sScCdDi%"))
 		out = type_to_str1(temp[8], ptr);

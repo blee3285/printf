@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:45:25 by blee              #+#    #+#             */
-/*   Updated: 2017/07/17 20:34:21 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 17:25:50 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ int	add_alt(char **str, int *form, int buffer)
 	temp = *str;
 	temp += buffer;
 	temp2 = NULL;
-	if (*temp || (temp && (c == 'o' || c == 'O')))
+	if (*temp || (temp && find_match(c, "oOp")))
 	{
 		if (c == 'o' || c == 'O')
 			temp2 = ft_strjoin("0", temp);
-		else if (c == 'x')
+		else if (c == 'x' || c == 'p')
 			temp2 = ft_strjoin("0x", temp);
 		else if (c == 'X')
 			temp2 = ft_strjoin("0X", temp);

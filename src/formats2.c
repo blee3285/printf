@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 14:26:03 by blee              #+#    #+#             */
-/*   Updated: 2017/07/06 19:06:51 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 17:31:28 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		check_precision(char *str, int **formats, va_list ap)
 			temp[6] = va_arg(ap, int);
 			i++;
 		}
-		else if (temp[6] == 0)
+		if (temp[6] == 0)
 			temp[6] = -1;
 		while (ft_isdigit(*str))
 		{

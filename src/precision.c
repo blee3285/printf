@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/25 12:10:52 by blee              #+#    #+#             */
-/*   Updated: 2017/07/17 20:22:55 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 17:22:57 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ int		cut_str(char **str, int max, int len)
 	char	*temp;
 
 	temp = *str;
-	if (len > max)
+	if (max == -1)
+	{
+		ft_strclr(temp);
+		return (0);
+	}
+	else if (len > max)
 	{
 		temp += max;
 		ft_strclr(temp);

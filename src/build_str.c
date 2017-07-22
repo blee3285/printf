@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/07/21 13:55:59 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 17:20:25 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		apply_flags(char **output, int **formats, int *len)
 			neg = 1;
 		numeric_flags(output, formats, len, neg);
 	}
-	if (temp[4] && find_match(temp[8], "oOxX"))
+	if (temp[4] && find_match(temp[8], "oOxXp"))
 		alt_flag(output, formats, len);
 	if (temp[0] && (*len < temp[9]))
 		shift_left(output, *len);

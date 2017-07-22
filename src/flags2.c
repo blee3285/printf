@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/12 15:51:24 by blee              #+#    #+#             */
-/*   Updated: 2017/06/20 14:38:21 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 16:09:03 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	add_alt_with_zero(char **str, int *formats)
 
 	c = formats[8];
 	temp = *str;
-	if (c == 'x')
+	if (c == 'x' || c == 'p')
 		temp[1] = 'x';
 	else if (c == 'X')
 		temp[1] = 'X';
@@ -39,7 +39,7 @@ int	add_alt_with_buffer(char **str, int *formats, int buffer)
 		*temp = '0';
 		return (1);
 	}
-	else if (formats[8] == 'x' || formats[8] == 'X')
+	else if (find_match(formats[8], "xXp"))
 	{
 		temp += buffer - 2;
 		temp[0] = '0';

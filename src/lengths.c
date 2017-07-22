@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 17:28:36 by blee              #+#    #+#             */
-/*   Updated: 2017/07/19 19:58:00 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 15:54:22 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,5 @@ char	*lengths_to_str(int **formats, void *ptr)
 		out = octal_hex_types(temp, ptr);
 	else if (find_match(temp[8], "cs"))
 		out = str_and_char_types(temp, ptr);
-	temp[9] = ft_strlen(out);
 	return (out);
 }

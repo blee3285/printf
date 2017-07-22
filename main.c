@@ -6,12 +6,13 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/07/21 14:24:54 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/21 18:36:28 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/ft_printf.h"
 #include <stdio.h>
+#include <wchar.h>
 
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"
@@ -51,33 +52,18 @@ int		main(void)
 	printf("Le fichier\x1B[36m%s\x1B[0m contient : \x1B[31m%s\x1B[0m", "BBB", "AAA");
 	*/
 
-	/*
-	ft_printf("STR: %s\nCHAR: %c\nINT: %d\nOCTAL: %o\nhex: %x\n", "Hello World!", 'Z', 255, 255, 255);
-	ft_printf("HEX: %X\nUNSIGNED INT: %u\n", 255, 2148000000);
-	ft_printf("POINTER: %p\n", &ptr);
-	*/
-	//str = ft_strdup("     123");i
-	//printf("OLD STR: |%s|\n", str);
-	//flag_id(&str, 3, '-');
-	//printf("NEW STR: |%s|\n", str);
-	
-	i = ft_printf("|%3c|\n", 0);
-	ft_putnbr(i);
-	ft_putchar('\n');
-	j = printf("|%3c|\n", 0);
-	ft_putnbr(j);
-	ft_putchar('\n');
-
+	i = printf("test\n");
+	j = ft_printf("test\n");
 	
 	//char	*str = "hellodf";
 
 	//setlocale(LC_ALL, "");
-	//printf("printf: |%&&jhdfhs|\n", 10, 23);
-	//ft_printf("printf: |%&&jhdfhs|\n", 10, 23);
-	//printf("%d\n", printf("%hhljtz 4.8%04", 1));
-	//ft_printf("%d\n", ft_printf("%hhljtz 4.8%04", 1));
-	//printf("printf: |%05=acs%05=|\n", 555);
-	//ft_printf("printf: |%05=acs%05=|\n", 555);
+	//i = printf("printf:    |%&&jhdfhs|\n", 10, 23);
+	//j = ft_printf("ft_printf: |%&&jhdfhs|\n", 10, 23);
+	//i = printf("%d\n", printf("%hhljtz 4.8%04\n", 1));
+	//j = ft_printf("%d\n", ft_printf("%hhljtz 4.8%04\n", 1));
+	//i = printf("printf:    |%05=acs%05=|\n", 555);
+	//j = ft_printf("ft_printf: |%05=acs%05=|\n", 555);
 	//printf("printf: |hello%.3llld|\n", SHRT_MAX);
 	//ft_printf("printf: |hello%.3llld|\n", SHRT_MAX);
 	//printf("printf: |%jdgb|\n", 525);
@@ -155,5 +141,8 @@ int		main(void)
 	// printf("%-+ 5.9f|\n", 1.2234454556);
 	// ft_printf("%f ", );
 	
+	printf("printf: %d\n", i);
+	printf("ft_printf: %d\n", j);
+
 	return (0);
 }
