@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/07/19 19:58:13 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/24 18:57:10 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int				add_width(char **str, int **formats, int len);
 int				cut_str(char **str, int max, int len);
 int				precision_num(char **str, int **formats, int *len);
 int				precision(char **str, int **formats, int *len);
+int				cut_wstr(wchar_t **wstr, int max, int len);
 
 int				shift_left(char **str, int len);
 int				add_char(char **str, int len, char c);
@@ -54,5 +55,10 @@ int				add_alt_with_buffer(char **str, int *formats, int buffer);
 
 char			*wchar_to_str(wchar_t wc);
 char			*wstr_to_str(wchar_t *wstr);
+int				wide_str_check(int *form);
+wchar_t			*wchar_to_wstr(wchar_t wc);
+wchar_t			*wstr_dup(wchar_t *wstr);
+char			*wstr_manager(int **formats, va_list ap);
+int				wstrclr(wchar_t *wstr);
 
 #endif

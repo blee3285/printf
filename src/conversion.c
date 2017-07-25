@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/21 16:06:13 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/24 18:05:52 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ char	*type_to_str1(char c, void *ptr)
 		out = one_char_str((int)ptr);
 	else if (c == 'C')
 		out = wchar_to_str((wchar_t)ptr);
-	else if (c == 'd' || c == 'D' || c == 'i')
+	else if (c == 'd' || c == 'i')
 		out = ft_itoa_base((int)ptr, 10, 0);
+	else if (c == 'D')
+		out = ft_itoa_base((long long)ptr, 10, 0);
 	else if (c == '%')
 		out = one_char_str('%');
 	return (out);
@@ -48,8 +50,10 @@ char	*type_to_str2(char c, void *ptr)
 	char	*out;
 
 	out = NULL;
-	if (c == 'o' || c == 'O')
+	if (c == 'o')
 		out = ft_itoa_base_un((unsigned int)ptr, 8, 0);
+	if (c == 'O')
+		out = ft_itoa_base_un((unsigned long)ptr, 8, 0);
 	else if (c == 'x')
 		out = ft_itoa_base_un((unsigned int)ptr, 16, 0);
 	else if (c == 'X')
@@ -96,7 +100,5 @@ char	*conversion(int **formats, va_list ap)
 	temp[9] = ft_strlen(out);
 	if (temp[8] == 'c' && ptr == NULL)
 		temp[9]++;
-	if (temp[8] == 'C')
-		temp[9] = 1;
 	return (out);
 }
