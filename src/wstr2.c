@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 16:49:13 by blee              #+#    #+#             */
-/*   Updated: 2017/07/24 19:24:23 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 13:17:12 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,14 @@ wchar_t	*wstrcpy(wchar_t *dst, wchar_t *src)
 	}
 	dst[i] = 0;
 	return (dst);
+}
+
+int		wstr_len(wchar_t *wstr)
+{
+	int		i;
+
+	i = 0;
+	while (wstr[i])
+		i++;
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/07/24 18:57:10 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 13:43:05 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char			*one_char_str(char c);
 char			*lengths_to_str(int **formats, void *ptr);
 
 int				add_width(char **str, int **formats, int len);
+int				add_width_wstr(wchar_t **wstr, int **formats, int len);
 
 int				cut_str(char **str, int max, int len);
 int				precision_num(char **str, int **formats, int *len);
@@ -58,7 +59,10 @@ char			*wstr_to_str(wchar_t *wstr);
 int				wide_str_check(int *form);
 wchar_t			*wchar_to_wstr(wchar_t wc);
 wchar_t			*wstr_dup(wchar_t *wstr);
+wchar_t			*wstrnew(size_t size);
+wchar_t			*wstrcpy(wchar_t *dst, wchar_t *src);
 char			*wstr_manager(int **formats, va_list ap);
 int				wstrclr(wchar_t *wstr);
+int				wstr_len(wchar_t *wstr);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 18:02:21 by blee              #+#    #+#             */
-/*   Updated: 2017/07/24 19:29:30 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 13:43:52 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ wchar_t	*wstr_dup(wchar_t *wstr)
 	out = NULL;
 	while(wstr[i])
 		i++;
-	out = (wchar_t)malloc(sizeof(wchar_t) * (i + 1));
+	out = (wchar_t *)malloc(sizeof(wchar_t) * (i + 1));
 	i = 0;
 	while (wstr[i])
 	{
@@ -75,7 +75,6 @@ char	*wstr_manager(int **formats, va_list ap)
 {
 	wchar_t	*wstr;
 	int		*temp;
-	char	*out;
 	int		len;
 
 	temp = *formats;
@@ -83,5 +82,14 @@ char	*wstr_manager(int **formats, va_list ap)
 		wstr = wchar_to_wstr(va_arg(ap, wchar_t));
 	else
 		wstr = wstr_dup(va_arg(ap, wchar_t *));
-
-
+	len = wstr_len(wstr);
+	temp[9] = len;
+	if (temp[6] || temp[6] == -1)
+	{
+		temp[9] = cut_wstr(&wstr, temp[6], len);
+		len = temp[9];
+	}
+	if (temp[5])
+		temp[9] = add_width_wstr(&wstr, formats, len);
+	return (wstr_to_str(wstr));
+}

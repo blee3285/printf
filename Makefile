@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/10 17:58:25 by blee              #+#    #+#              #
-#    Updated: 2017/07/19 17:53:30 by blee             ###   ########.fr        #
+#    Updated: 2017/07/25 13:14:53 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,8 @@ PFSRC		:= ft_printf.c \
 			   flags2.c \
 			   lengths.c \
 			   wchar.c \
-			   wstr.c
+			   wstr.c \
+			   wstr2.c
 
 LIBFT		:= $(addprefix libft/, $(LIBSRC))
 PFC			:= $(addprefix src/, $(PFSRC))

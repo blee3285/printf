@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/07/21 18:36:28 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 13:47:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		main(void)
 	*/
 
 	i = printf("test\n");
-	j = ft_printf("test\n");
+	j = ft_printf("%S\n", wstr);
 	
 	//char	*str = "hellodf";
 
