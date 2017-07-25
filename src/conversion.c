@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/24 18:05:52 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 15:59:12 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*type_to_str1(char c, void *ptr)
 	if (c == 'S')
 		out = wstr_to_str((wchar_t *)ptr);
 	else if (c == 'c')
-		out = one_char_str((int)ptr);
+		out = one_char_str((char)ptr);
 	else if (c == 'C')
 		out = wchar_to_str((wchar_t)ptr);
 	else if (c == 'd' || c == 'i')
@@ -71,6 +71,8 @@ char	*one_char_str(char c)
 {
 	char	*str;
 
+	if (!c)
+		c = 0;
 	str = ft_strnew(1);
 	str[0] = c;
 	return (str);
