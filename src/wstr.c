@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 18:02:21 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 13:43:52 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 14:05:22 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,7 @@ char	*wstr_manager(int **formats, va_list ap)
 	}
 	if (temp[5])
 		temp[9] = add_width_wstr(&wstr, formats, len);
+	if (temp[0])
+		wstr_shift_left(&wstr, temp, len);
 	return (wstr_to_str(wstr));
 }

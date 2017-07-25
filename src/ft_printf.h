@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 13:43:05 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 14:01:56 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ wchar_t			*wstrcpy(wchar_t *dst, wchar_t *src);
 char			*wstr_manager(int **formats, va_list ap);
 int				wstrclr(wchar_t *wstr);
 int				wstr_len(wchar_t *wstr);
+int				wstr_shift_left(wchar_t **wstr, int *formats, int len);
 
 #endif

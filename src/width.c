@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 18:10:39 by blee              #+#    #+#             */
-/*   Updated: 2017/07/24 19:27:30 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 14:30:03 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,19 @@ int		add_width_wstr(wchar_t **wstr, int **formats, int len)
 	wchar_t		*new_size;
 	wchar_t		*temp;
 	int			*form;
+	int			buffer;
 
 	form = *formats;
 	new_size = NULL;
 	if (form[5] <= len)
 		return (len);
+	buffer = form[5] - len;
 	new_size = wstrnew(form[5]);
 	temp = new_size;
-	while (len)
+	while (buffer)
 	{
 		*temp = L' ';
-		len--;
+		buffer--;
 		temp++;
 	}
 	wstrcpy(temp, *wstr);
