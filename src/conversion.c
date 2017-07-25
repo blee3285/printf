@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 16:12:32 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 16:16:01 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*conversion(int **formats, va_list ap)
 	out = NULL;
 	ptr = va_arg(ap, void *);
 	ft_putchar('[');
-	ft_putstr(ft_itoa_base_un((unsigned long long)ptr, 16, 0));
+	ft_putstr(ft_itoa_base_un((unsigned long long)ptr, 10, 0));
 	ft_putchar(']');
 	if (temp[8] == 'p')
 		temp[4] = 1;
