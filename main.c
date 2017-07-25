@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 15:49:12 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 16:00:49 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int		main(void)
 	printf("Le fichier\x1B[36m%s\x1B[0m contient : \x1B[31m%s\x1B[0m", "BBB", "AAA");
 	*/
 
-	i = printf("|%d|\n", -42);
-	j = ft_printf("|%-i|\n", -42);
+	i = printf("|%c|\n", 0);
+	j = ft_printf("|%c|\n", 0);
 	
 	//char	*str = "hellodf";
 
