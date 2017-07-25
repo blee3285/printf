@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 16:02:52 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 16:06:56 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,9 @@ char	*conversion(int **formats, va_list ap)
 	temp = *formats;
 	out = NULL;
 	ptr = va_arg(ap, void *);
-	ft_putchar('\n');
+	ft_putchar('[');
 	ft_putnbr((int)ptr);
+	ft_putchar(']');
 	ft_putnbr('\n');
 	if (temp[8] == 'p')
 		temp[4] = 1;
