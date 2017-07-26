@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 16:54:15 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 19:21:45 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*type_to_str2(char c, void *ptr)
 	else if (c == 'u')
 		out = ft_itoa_base_un((unsigned int)ptr, 10, 0);
 	else if (c == 'U')
-		out = ft_itoa_base_un((unsigned long)ptr, 10, 0);
+		out = ft_itoa_base_un((unsigned long long)ptr, 10, 0);
 	else if (c == 'p')
 		out = ft_itoa_base_un((long long)ptr, 16, 0);
 	return (out);
@@ -71,8 +71,6 @@ char	*one_char_str(char c)
 {
 	char	*str;
 
-	if (!c)
-		c = 0;
 	str = ft_strnew(1);
 	str[0] = c;
 	return (str);

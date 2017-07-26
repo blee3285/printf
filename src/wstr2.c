@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 16:49:13 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 14:30:26 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 18:01:57 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		wstr_len(wchar_t *wstr)
 	return (i);
 }
 
-int		wstr_shift_left(wchar_t **wstr, int *formats, int len)
+int		wstr_shift_left(wchar_t **wstr, int len)
 {
 	wchar_t *temp;
 	wchar_t	*start;
@@ -71,7 +71,9 @@ int		wstr_shift_left(wchar_t **wstr, int *formats, int len)
 
 	i = 0;
 	start = *wstr;
-	buffer = formats[9] - len;
+	buffer = wstr_len(start) - len;
+	if (buffer <= 0)
+		return (0);
 	temp = *wstr + buffer;
 	while (i < len)
 	{

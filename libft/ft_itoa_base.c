@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 17:06:49 by blee              #+#    #+#             */
-/*   Updated: 2017/06/29 14:37:38 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 17:07:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,13 @@ static char	*build_str_un(unsigned long long value, int base, int len, int cap)
 	return (str);
 }
 
-char		*ft_itoa_base_un(unsigned long long value, int base, int cap)
+char		*ft_itoa_base_un(unsigned long long x, int base, int cap)
 {
 	unsigned long long	num;
 	char				*str;
 	int					len;
 
-	num = value;
+	num = x;
 	if (base < 2 || base > 16)
 		return (ft_strdup("Error"));
 	if (num == 0)

@@ -6,15 +6,15 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/13 18:02:21 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 14:51:18 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 18:56:42 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		wide_str_check(int	*form)
+int		wide_str_check(int *form)
 {
-	if (form[8] == 'C' || form[8] == 'S' || 
+	if (form[8] == 'C' || form[8] == 'S' ||
 		(form[7] == 'l' && (form[8] == 'c' || form[8] == 's')))
 		return (1);
 	return (0);
@@ -58,7 +58,9 @@ wchar_t	*wstr_dup(wchar_t *wstr)
 
 	i = 0;
 	out = NULL;
-	while(wstr[i])
+	if (!wstr)
+		return (wstr_dup(L"(null)"));
+	while (wstr[i])
 		i++;
 	out = (wchar_t *)malloc(sizeof(wchar_t) * (i + 1));
 	i = 0;
@@ -84,16 +86,14 @@ char	*wstr_manager(int **formats, va_list ap)
 	else
 		wstr = wstr_dup(va_arg(ap, wchar_t *));
 	len = wstr_len(wstr);
-	temp[9] = len;
 	if (temp[6] || temp[6] == -1)
-	{
-		temp[9] = cut_wstr(&wstr, temp[6], len);
-		len = temp[9];
-	}
+		len = cut_wstr(&wstr, temp[6], len);
 	if (temp[5])
-		temp[9] = add_width_wstr(&wstr, formats, len);
+		add_width_wstr(&wstr, formats, len);
 	if (temp[0])
-		wstr_shift_left(&wstr, temp, len);
+		wstr_shift_left(&wstr, len);
 	out = wstr_to_str(wstr);
+	temp[9] = ft_strlen(out);
+	free(wstr);
 	return (out);
 }

@@ -6,13 +6,14 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 16:00:49 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 19:32:58 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/ft_printf.h"
 #include <stdio.h>
 #include <wchar.h>
+#include <locale.h>
 
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"
@@ -39,6 +40,7 @@ int		main(void)
 	c = 0;
 	wc = L'𐍈';
 	str = NULL;
+	setlocale(LC_ALL, "");
 	/*
 	printf(RED "red\n" RESET);
 	printf(GRN "green\n" RESET);
@@ -52,12 +54,11 @@ int		main(void)
 	printf("Le fichier\x1B[36m%s\x1B[0m contient : \x1B[31m%s\x1B[0m", "BBB", "AAA");
 	*/
 
-	i = printf("|%c|\n", 0);
-	j = ft_printf("|%c|\n", 0);
+	i = printf("test");
+	j = ft_printf("test");
 	
 	//char	*str = "hellodf";
 
-	//setlocale(LC_ALL, "");
 	//i = printf("printf:    |%&&jhdfhs|\n", 10, 23);
 	//j = ft_printf("ft_printf: |%&&jhdfhs|\n", 10, 23);
 	//i = printf("%d\n", printf("%hhljtz 4.8%04\n", 1));

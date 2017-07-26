@@ -6,7 +6,7 @@
 /*   By: blee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 13:16:07 by blee              #+#    #+#             */
-/*   Updated: 2017/06/07 17:02:06 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 17:07:49 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ t_list				*ft_strsplit_lst(char *str, char c);
 int					ft_isprime(int num);
 void				ft_lstdelnode(t_list **lst, t_list **node);
 char				*ft_itoa_base(long long value, int base, int cap);
-char				*ft_itoa_base_un(unsigned long long value, int base, int cap);
+char				*ft_itoa_base_un(unsigned long long x, int base, int cap);
 
 #endif

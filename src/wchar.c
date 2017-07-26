@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 15:23:28 by blee              #+#    #+#             */
-/*   Updated: 2017/07/24 18:03:44 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 19:48:37 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*wchar_to_str(wchar_t wc)
 		out = two_byte_str(wc);
 	else if (wc <= 0xFFFF)
 		out = three_byte_str(wc);
-	else if (wc <= 0x10FFFF)
+	else if (wc <= 0x1FFFFF)
 		out = four_byte_str(wc);
 	return (out);
 }

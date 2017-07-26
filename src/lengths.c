@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 17:28:36 by blee              #+#    #+#             */
-/*   Updated: 2017/07/21 15:54:22 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/25 17:10:03 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*octal_hex_types(int *formats, void *ptr)
 char	*str_and_char_types(int *formats, void *ptr)
 {
 	char	*out;
-	
+
 	out = NULL;
 	if (formats[7] == 'l' && formats[8] == 'c')
 		out = wchar_to_str((wchar_t)ptr);
