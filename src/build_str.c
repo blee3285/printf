@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 19:03:58 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/28 19:06:38 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		alt_flag(char **output, int **formats, int *len)
 	form = *formats;
 	buffer = form[9] - *len;
 	temp += buffer;
-	if (*len == 1 && *temp == '0')
+	if (*len == 1 && *temp == '0' && form[8] != 'p')
 		return (0);
 	if (form[3] && form[0] == 0)
 		*len += add_alt_with_zero(output, form);
@@ -63,7 +63,7 @@ int		alt_flag(char **output, int **formats, int *len)
 	{
 		i = add_alt(output, form, buffer);
 		*len += i;
-		form[9] += i;
+		form[9] += i - buffer;
 	}
 	return (0);
 }

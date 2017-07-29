@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/12 15:51:24 by blee              #+#    #+#             */
-/*   Updated: 2017/07/21 16:09:03 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/28 18:39:54 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int	add_alt_with_buffer(char **str, int *formats, int buffer)
 	{
 		temp += buffer - 2;
 		temp[0] = '0';
-		temp[1] = formats[8];
+		if (formats[8] == 'X')
+			temp[1] = 'X';
+		else
+			temp[1] = 'x';
 		return (2);
 	}
 	return (0);

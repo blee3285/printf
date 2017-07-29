@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 19:21:45 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/28 20:17:23 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,17 @@ char	*one_char_str(char c)
 	return (str);
 }
 
+void	*get_ptr(int *formats, va_list ap)
+{
+	void	*ptr;
+
+	if (formats[8] == '%')
+		ptr = NULL;
+	else
+		ptr = va_arg(ap, void *);
+	return (ptr);
+}
+
 char	*conversion(int **formats, va_list ap)
 {
 	char	*out;
@@ -84,9 +95,9 @@ char	*conversion(int **formats, va_list ap)
 
 	temp = *formats;
 	out = NULL;
-	ptr = va_arg(ap, void *);
+	ptr = get_ptr(temp, ap);
 	if (temp[8] == 'p')
-		temp[4] = 1;
+		temp[4] = '#';
 	if (ptr == NULL && (temp[8] == 's' || temp[8] == 'S'))
 		out = ft_strdup("(null)");
 	else if (temp[7] && find_match(temp[8], "dDioOxXuUcs"))
@@ -95,10 +106,12 @@ char	*conversion(int **formats, va_list ap)
 		out = type_to_str1(temp[8], ptr);
 	else if (find_match(temp[8], "oOxXuUp"))
 		out = type_to_str2(temp[8], ptr);
+	else
+		out = ft_strnew(1);
 	if (!out)
 		out = ft_strdup("");
 	temp[9] = ft_strlen(out);
-	if (temp[8] == 'c' && ptr == NULL)
+	if ((temp[8] == 'c' || temp[8] == 'C') && ptr == NULL)
 		temp[9]++;
 	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 13:36:58 by blee             ###   ########.fr       */
+/*   Updated: 2017/07/28 20:04:33 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ int		valid_format(char *str, int **formats, va_list ap)
 	if (*str == '%')
 	{
 		len += format_checker(str + 1, formats, ap);
-		if (temp[8])
-			return (len);
+		return (len);
 	}
 	return (0);
 }
