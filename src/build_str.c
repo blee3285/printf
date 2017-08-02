@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/07/28 19:06:38 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/01 19:03:57 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int		numeric_flags(char **out, int **form, int *len, int neg)
 
 	temp = *form;
 	c = 0;
-	if (temp[1] && find_match(temp[8], "dDi"))
+	if (temp[1])
 		c = '+';
-	else if (form[2] && find_match(temp[8], "dDi"))
+	else if (temp[2])
 		c = ' ';
-	if (temp[3] && temp[0] == 0 && (*len > temp[6]))
+	if (temp[3] && temp[0] == 0 && !temp[6])
 		zero_buffer(out, *len, neg);
 	if ((temp[2] || temp[1]) && !neg && find_match(temp[8], "dDi"))
 	{
@@ -75,12 +75,9 @@ int		apply_flags(char **output, int **formats, int *len)
 
 	neg = 0;
 	temp = *formats;
-	if (find_match(temp[8], "dDioOxXuU"))
-	{
-		if (ft_atoi(*output) < 0 && find_match(temp[8], "dDi"))
-			neg = 1;
-		numeric_flags(output, formats, len, neg);
-	}
+	if (ft_atoi(*output) < 0 && find_match(temp[8], "dDi"))
+		neg = 1;
+	numeric_flags(output, formats, len, neg);
 	if (temp[4] && find_match(temp[8], "oOxXp"))
 		alt_flag(output, formats, len);
 	if (temp[0] && (*len < temp[9]))
@@ -99,11 +96,15 @@ char	*build_str(int **formats, va_list ap)
 	//if (wide_str_check(temp))
 	//	return (wstr_manager(formats, ap));
 	output = conversion(formats, ap);
+	if (!temp[8] && temp[5])
+		temp[5]--;
 	len = temp[9];
 	if (temp[6] || temp[6] == -1)
 		temp[9] = precision(&output, formats, &len);
 	if (formats[5])
 		temp[9] = add_width(&output, formats, len);
 	apply_flags(&output, formats, &len);
+	if (temp[8] == 'z')
+		temp[9]++;
 	return (output);
 }

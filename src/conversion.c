@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/07/28 20:17:23 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/01 18:51:49 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,13 @@ char	*conversion(int **formats, va_list ap)
 		out = type_to_str1(temp[8], ptr);
 	else if (find_match(temp[8], "oOxXuUp"))
 		out = type_to_str2(temp[8], ptr);
-	else
-		out = ft_strnew(1);
-	if (!out)
+	if (out == NULL)
 		out = ft_strdup("");
 	temp[9] = ft_strlen(out);
 	if ((temp[8] == 'c' || temp[8] == 'C') && ptr == NULL)
-		temp[9]++;
+	{
+		temp[5]--;
+		temp[8] = 'z';
+	}
 	return (out);
 }
