@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/08/02 18:15:17 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/02 18:31:20 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,9 @@ char	*type_to_str2(char c, void *ptr)
 char	*one_char_str(char c)
 {
 	char	*str;
-	char	a;
 
-	a = 0;
-	if (c <= 127 || c >= 0)
-		a = c;
 	str = ft_strnew(1);
-	str[0] = a;
+	str[0] = c;
 	return (str);
 }
 
