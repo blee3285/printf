@@ -6,15 +6,13 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/08/02 18:31:20 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/04 20:54:45 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* Need new functions
-	if (c == 'S') wide char
-
+/*	 Need new functions
 	optional
 	eE - floats in exponent notation
 	fF - floats
@@ -33,7 +31,7 @@ char	*type_to_str1(char c, void *ptr)
 	if (c == 'S')
 		out = wstr_to_str((wchar_t *)ptr);
 	else if (c == 'c')
-		out = one_char_str((char)ptr);
+		out = one_char_str((int)ptr);
 	else if (c == 'C')
 		out = wchar_to_str((wchar_t)ptr);
 	else if (c == 'd' || c == 'i')
