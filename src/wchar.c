@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 15:23:28 by blee              #+#    #+#             */
-/*   Updated: 2017/07/25 19:48:37 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/07 15:42:27 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ char	*one_byte_str(wchar_t wc)
 	char	*str;
 
 	str = ft_strnew(1);
-	*str = (unsigned char)wc;
+	if (wc == 0)
+		*str = 127;
+	else
+		*str = (unsigned char)wc;
 	return (str);
 }
 
@@ -67,8 +70,6 @@ char	*wchar_to_str(wchar_t wc)
 {
 	char	*out;
 
-	if (!wc)
-		return (ft_strdup(""));
 	out = NULL;
 	if ((wc <= 0x7F) || (MB_CUR_MAX == 1 && wc < 0xFF))
 		out = one_byte_str(wc);

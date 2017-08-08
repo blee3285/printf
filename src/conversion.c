@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/08/04 20:54:45 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/07 15:42:54 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ char	*one_char_str(char c)
 	char	*str;
 
 	str = ft_strnew(1);
-	str[0] = c;
+	if (c == 0)
+		str[0] = 127;
+	else
+		str[0] = c;
 	return (str);
 }
 
@@ -107,10 +110,7 @@ char	*conversion(int **formats, va_list ap)
 	if (out == NULL)
 		out = ft_strdup("");
 	temp[9] = ft_strlen(out);
-	if ((temp[8] == 'c' || temp[8] == 'C') && ptr == NULL)
-	{
+	if ((temp[8] == 'C') && ptr == NULL)
 		temp[5]--;
-		temp[8] = 'z';
-	}
 	return (out);
 }

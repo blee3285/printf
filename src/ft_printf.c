@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/07/28 20:04:33 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/07 14:28:37 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		print_string(int **formats, va_list ap)
 	temp = *formats;
 	output = build_str(formats, ap);
 	len = temp[9];
-	ft_putstr(output);
+	printf_putstr(output);
 	ft_bzero(*formats, 40);
 	free(output);
 	return (len);

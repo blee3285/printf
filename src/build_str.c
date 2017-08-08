@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/08/01 19:03:57 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/07 15:42:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,5 @@ char	*build_str(int **formats, va_list ap)
 	if (formats[5])
 		temp[9] = add_width(&output, formats, len);
 	apply_flags(&output, formats, &len);
-	if (temp[8] == 'z')
-		temp[9]++;
 	return (output);
 }
