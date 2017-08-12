@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:21:17 by blee              #+#    #+#             */
-/*   Updated: 2017/08/08 14:31:39 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/11 19:23:36 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int		check_format(char *str, va_list ap)
 			str += len;
 			i += print_string(&formats, ap);
 		}
+		else if ((len = check_color(str)))
+			str += len;
 		else if (*str != '%')
 		{
 			ft_putchar(*str);

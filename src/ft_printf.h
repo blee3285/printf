@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/10 14:13:58 by blee              #+#    #+#             */
-/*   Updated: 2017/08/07 14:23:16 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/11 19:09:25 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int				check_width(char *str, int **formats, va_list ap);
 int				check_precision(char *str, int **formats, va_list ap);
 int				check_length(char *str, int **formats);
 int				check_type(char *str, int **formats);
+int				check_color(char *str);
 
 char			*build_str(int **formats, va_list ap);
 int				apply_flags(char **output, int **formats, int *len);

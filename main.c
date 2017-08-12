@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/08/07 15:45:47 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/11 19:22:58 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,9 +141,14 @@ int		main(void)
 	//ft_printf("{%#x}\n", 42544554);
 	// printf("%-+ 5.9f|\n", 1.2234454556);
 	// ft_printf("%f ", );
+	
+	//ft_putstr("\x1B[35m");
+	//ft_putstr("\x1B[1m");
+
 	i = printf("a|%C|\n", 0);
-	j = ft_printf("b|%C|\n", 0);
+	j = ft_printf("{blue}b|%C|{eoc}\n", 0);
 	printf("printf: %d\n", i);
 	printf("ft_printf: %d\n", j);
+
 	return (0);
 }

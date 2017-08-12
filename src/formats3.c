@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 17:59:32 by blee              #+#    #+#             */
-/*   Updated: 2017/06/07 14:18:05 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/11 19:24:13 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,45 @@ int		check_type(char *str, int **formats)
 	{
 		temp[8] = *str;
 		return (1);
+	}
+	return (0);
+}
+
+char	colors[20][3][11] = {
+	{"{eoc}", "\x1B[0m", "A"},
+	{"{bold}", "\x1B[1m", "B"},
+	{"{_}", "\x1B[4m", "?"},
+	{"{black}", "\x1B[30m", "C"},
+	{"{red}", "\x1B[31m", "A"},
+	{"{green}", "\x1B[32m", "C"},
+	{"{yellow}", "\x1B[33m", "D"},
+	{"{blue}", "\x1B[34m", "B"},
+	{"{magenta}", "\x1B[35m", "E"},
+	{"{cyan}", "\x1B[36m", "B"},
+	{"{white}", "\x1B[37m", "C"},
+	{"{blackb}", "\x1B[40m", "D"},
+	{"{redb}", "\x1B[41m", "B"},
+	{"{greenb}", "\x1B[42m", "D"},
+	{"{yellowb}", "\x1B[43m", "E"},
+	{"{blueb}", "\x1B[44m", "C"},
+	{"{magentab}", "\x1B[45m", "F"},
+	{"{cyanb}", "\x1B[46m", "C"},
+	{"{whiteb}", "\x1B[47b", "D"},
+	{"{noc}", "\x1B[0", "A"}};
+
+int		check_color(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (i < 20)
+	{
+		if (ft_strncmp(str, colors[i][0], colors[i][2][0] - 60) == 0)
+		{
+			ft_putstr(colors[i][1]);
+			return (colors[i][2][0] - 61);
+		}
+		i++;
 	}
 	return (0);
 }
