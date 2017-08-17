@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 20:31:18 by blee              #+#    #+#             */
-/*   Updated: 2017/08/11 19:22:58 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/16 17:37:01 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ int		main(void)
 	//ft_putstr("\x1B[1m");
 
 	i = printf("a|%C|\n", 0);
-	j = ft_printf("{blue}b|%C|{eoc}\n", 0);
+	j = ft_printf("{cyan}{blueb}b|%C|{eoc}\n", 0);
 	printf("printf: %d\n", i);
 	printf("ft_printf: %d\n", j);
 

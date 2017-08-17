@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:05:09 by blee              #+#    #+#             */
-/*   Updated: 2017/08/07 15:42:43 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/16 14:06:12 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ char	*build_str(int **formats, va_list ap)
 
 	output = NULL;
 	temp = *formats;
-	//if (wide_str_check(temp))
-	//	return (wstr_manager(formats, ap));
 	output = conversion(formats, ap);
 	if (!temp[8] && temp[5])
 		temp[5]--;

@@ -6,20 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 12:14:47 by blee              #+#    #+#             */
-/*   Updated: 2017/08/07 15:42:54 by blee             ###   ########.fr       */
+/*   Updated: 2017/08/16 14:25:05 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*	 Need new functions
-	optional
-	eE - floats in exponent notation
-	fF - floats
-	gG - double
-	aA - double  in hex
-	n - num of char into a int pointer?
-*/
 
 char	*type_to_str1(char c, void *ptr)
 {
